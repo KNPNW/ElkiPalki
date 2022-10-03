@@ -1,20 +1,20 @@
 //
-//  ViewController.swift
+//  ApplicationViewController.swift
 //  ElkiPalki
 //
-//  Created by Кирилл Падалица on 01.10.2022.
+//  Created by Кирилл Падалица on 10.09.2022.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class ApplicationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
+    
 
     /*
     // MARK: - Navigation
