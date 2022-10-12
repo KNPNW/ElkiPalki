@@ -1,13 +1,6 @@
-//
-//  ActiveProjectViewController.swift
-//  ElkiPalki
-//
-//  Created by Кирилл Падалица on 10.09.2022.
-//
-
 import UIKit
 
-class ActiveProjectViewController: UIViewController {
+class ActiveProjectsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

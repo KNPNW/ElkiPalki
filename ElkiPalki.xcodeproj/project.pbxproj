@@ -24,11 +24,11 @@
 		255D97FE28DA4CAB002CBB38 /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255D97FD28DA4CAB002CBB38 /* Objects.swift */; };
 		255D980028DA5AAE002CBB38 /* ObjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255D97FF28DA5AAE002CBB38 /* ObjectTableViewCell.swift */; };
 		255F206A28F73BAD004B8DC2 /* NewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255F206928F73BAD004B8DC2 /* NewObject.swift */; };
+		255F206E28F75C49004B8DC2 /* ObjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255F206D28F75C49004B8DC2 /* ObjectsViewController.swift */; };
 		257DC77528EF516A0002E548 /* FinishingOptionsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257DC77428EF516A0002E548 /* FinishingOptionsScrollView.swift */; };
 		257DC77828EF5D650002E548 /* FinishingOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257DC77728EF5D650002E548 /* FinishingOptionsView.swift */; };
 		257F7BD8281D90B000BCDB11 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BD7281D90B000BCDB11 /* MainViewController.swift */; };
 		257F7BDA281D9F4300BCDB11 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BD9281D9F4300BCDB11 /* AuthorizationViewController.swift */; };
-		257F7BDD281DAEDC00BCDB11 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BDC281DAEDC00BCDB11 /* HomeViewController.swift */; };
 		257F7BDF281DAEF700BCDB11 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BDE281DAEF700BCDB11 /* AccountViewController.swift */; };
 		257F7BE1281DAF0500BCDB11 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BE0281DAF0500BCDB11 /* AboutViewController.swift */; };
 		257F7BE4281DCCBE00BCDB11 /* HouseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BE3281DCCBE00BCDB11 /* HouseTableViewCell.swift */; };
@@ -46,8 +46,8 @@
 		25FB403728CA467C007FD823 /* LogoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB403628CA467C007FD823 /* LogoutTableViewCell.swift */; };
 		25FB403B28CB59A5007FD823 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB403A28CB59A5007FD823 /* UserSettings.swift */; };
 		25FB403D28CB643E007FD823 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB403C28CB643E007FD823 /* ProfileViewController.swift */; };
-		25FB404328CCB69C007FD823 /* ActiveProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB404228CCB69C007FD823 /* ActiveProjectViewController.swift */; };
-		25FB404528CCB6B5007FD823 /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB404428CCB6B5007FD823 /* ApplicationViewController.swift */; };
+		25FB404328CCB69C007FD823 /* ActiveProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB404228CCB69C007FD823 /* ActiveProjectsViewController.swift */; };
+		25FB404528CCB6B5007FD823 /* ApplicationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB404428CCB6B5007FD823 /* ApplicationsViewController.swift */; };
 		25FB404728CCB6DA007FD823 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB404628CCB6DA007FD823 /* SettingsViewController.swift */; };
 		25FB404B28CE49E8007FD823 /* CustomtextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB404A28CE49E8007FD823 /* CustomtextField.swift */; };
 /* End PBXBuildFile section */
@@ -73,11 +73,11 @@
 		255D97FD28DA4CAB002CBB38 /* Objects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
 		255D97FF28DA5AAE002CBB38 /* ObjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectTableViewCell.swift; sourceTree = "<group>"; };
 		255F206928F73BAD004B8DC2 /* NewObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewObject.swift; sourceTree = "<group>"; };
+		255F206D28F75C49004B8DC2 /* ObjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectsViewController.swift; sourceTree = "<group>"; };
 		257DC77428EF516A0002E548 /* FinishingOptionsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishingOptionsScrollView.swift; sourceTree = "<group>"; };
 		257DC77728EF5D650002E548 /* FinishingOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishingOptionsView.swift; sourceTree = "<group>"; };
 		257F7BD7281D90B000BCDB11 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		257F7BD9281D9F4300BCDB11 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
-		257F7BDC281DAEDC00BCDB11 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		257F7BDE281DAEF700BCDB11 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		257F7BE0281DAF0500BCDB11 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		257F7BE3281DCCBE00BCDB11 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
@@ -97,8 +97,8 @@
 		25FB403628CA467C007FD823 /* LogoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutTableViewCell.swift; sourceTree = "<group>"; };
 		25FB403A28CB59A5007FD823 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		25FB403C28CB643E007FD823 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		25FB404228CCB69C007FD823 /* ActiveProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveProjectViewController.swift; sourceTree = "<group>"; };
-		25FB404428CCB6B5007FD823 /* ApplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
+		25FB404228CCB69C007FD823 /* ActiveProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveProjectsViewController.swift; sourceTree = "<group>"; };
+		25FB404428CCB6B5007FD823 /* ApplicationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationsViewController.swift; sourceTree = "<group>"; };
 		25FB404628CCB6DA007FD823 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		25FB404A28CE49E8007FD823 /* CustomtextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomtextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,6 +166,75 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		255F206F28F75C68004B8DC2 /* ObjectsViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				255F206D28F75C49004B8DC2 /* ObjectsViewController.swift */,
+				255F207028F75CDD004B8DC2 /* ObjectViewController */,
+			);
+			path = ObjectsViewControllers;
+			sourceTree = "<group>";
+		};
+		255F207028F75CDD004B8DC2 /* ObjectViewController */ = {
+			isa = PBXGroup;
+			children = (
+				250C721B28E32D3300B38AF7 /* ObjectViewController.swift */,
+			);
+			path = ObjectViewController;
+			sourceTree = "<group>";
+		};
+		255F207128F75D39004B8DC2 /* AccountViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				257F7BDE281DAEF700BCDB11 /* AccountViewController.swift */,
+				255F207328F75D96004B8DC2 /* ProfileViewControllers */,
+				255F207428F75DB4004B8DC2 /* ActiveProjectsViewControllers */,
+				255F207528F75E03004B8DC2 /* ApplicationsViewControllers */,
+				255F207628F75E55004B8DC2 /* SettingsViewControllers */,
+			);
+			path = AccountViewControllers;
+			sourceTree = "<group>";
+		};
+		255F207228F75D57004B8DC2 /* AboutViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				257F7BE0281DAF0500BCDB11 /* AboutViewController.swift */,
+			);
+			path = AboutViewControllers;
+			sourceTree = "<group>";
+		};
+		255F207328F75D96004B8DC2 /* ProfileViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				25FB403C28CB643E007FD823 /* ProfileViewController.swift */,
+			);
+			path = ProfileViewControllers;
+			sourceTree = "<group>";
+		};
+		255F207428F75DB4004B8DC2 /* ActiveProjectsViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				25FB404228CCB69C007FD823 /* ActiveProjectsViewController.swift */,
+			);
+			path = ActiveProjectsViewControllers;
+			sourceTree = "<group>";
+		};
+		255F207528F75E03004B8DC2 /* ApplicationsViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				25FB404428CCB6B5007FD823 /* ApplicationsViewController.swift */,
+			);
+			path = ApplicationsViewControllers;
+			sourceTree = "<group>";
+		};
+		255F207628F75E55004B8DC2 /* SettingsViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				25FB404628CCB6DA007FD823 /* SettingsViewController.swift */,
+			);
+			path = SettingsViewControllers;
+			sourceTree = "<group>";
+		};
 		257DC77628EF5D3A0002E548 /* FinishingOptions */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,18 +247,13 @@
 		257F7BDB281DAE7F00BCDB11 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				255F207128F75D39004B8DC2 /* AccountViewControllers */,
+				255F206F28F75C68004B8DC2 /* ObjectsViewControllers */,
+				255F207228F75D57004B8DC2 /* AboutViewControllers */,
 				25D160D62816F0FE00B1AE47 /* FirstViewController.swift */,
 				257F7BD9281D9F4300BCDB11 /* AuthorizationViewController.swift */,
 				25B0A48C289D974400DCE5CA /* RegistrateViewController.swift */,
 				257F7BD7281D90B000BCDB11 /* MainViewController.swift */,
-				257F7BDC281DAEDC00BCDB11 /* HomeViewController.swift */,
-				257F7BDE281DAEF700BCDB11 /* AccountViewController.swift */,
-				257F7BE0281DAF0500BCDB11 /* AboutViewController.swift */,
-				25FB403C28CB643E007FD823 /* ProfileViewController.swift */,
-				25FB404228CCB69C007FD823 /* ActiveProjectViewController.swift */,
-				25FB404428CCB6B5007FD823 /* ApplicationViewController.swift */,
-				25FB404628CCB6DA007FD823 /* SettingsViewController.swift */,
-				250C721B28E32D3300B38AF7 /* ObjectViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -361,9 +425,10 @@
 				25FB403428CA2736007FD823 /* AccountTableViewCell.swift in Sources */,
 				255D97FE28DA4CAB002CBB38 /* Objects.swift in Sources */,
 				250C721C28E32D3300B38AF7 /* ObjectViewController.swift in Sources */,
-				25FB404328CCB69C007FD823 /* ActiveProjectViewController.swift in Sources */,
+				25FB404328CCB69C007FD823 /* ActiveProjectsViewController.swift in Sources */,
 				250C722228E4B83400B38AF7 /* SliderButton.swift in Sources */,
 				25B9DEB328D8A88B00819045 /* StringExtension.swift in Sources */,
+				255F206E28F75C49004B8DC2 /* ObjectsViewController.swift in Sources */,
 				25D160D32816F0FE00B1AE47 /* AppDelegate.swift in Sources */,
 				250C722528E5BAEC00B38AF7 /* SliderView.swift in Sources */,
 				255F206A28F73BAD004B8DC2 /* NewObject.swift in Sources */,
@@ -385,9 +450,8 @@
 				258DFBE028F594520080185A /* ObjectImages.swift in Sources */,
 				25554D0D28C292F200E8AFDA /* UserAuthorization.swift in Sources */,
 				255D980028DA5AAE002CBB38 /* ObjectTableViewCell.swift in Sources */,
-				257F7BDD281DAEDC00BCDB11 /* HomeViewController.swift in Sources */,
 				25554D1128C2994E00E8AFDA /* Tokens.swift in Sources */,
-				25FB404528CCB6B5007FD823 /* ApplicationViewController.swift in Sources */,
+				25FB404528CCB6B5007FD823 /* ApplicationsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

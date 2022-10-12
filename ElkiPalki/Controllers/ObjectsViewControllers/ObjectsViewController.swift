@@ -11,7 +11,7 @@ struct ObjectOptions {
     
 }
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ObjectsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private lazy var tableView : UITableView = {
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), style: .grouped)
@@ -156,6 +156,3 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 }
 
-
-extension HomeViewController {
-}
