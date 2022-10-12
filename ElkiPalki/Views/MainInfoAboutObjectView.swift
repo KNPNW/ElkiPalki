@@ -102,6 +102,7 @@ class MainInfoAboutObject: UIView {
     }()
     
     
+    
     lazy var allLabel = [self.sizeLabel, self.numberOfFloorsLabel, self.squareLabel, self.numberOfRoomsLabel]
     lazy var allImage = [self.sizeImageView, self.numberOfFloorsImageView, self.squareImageView, self.numberOfRoomsImageView]
     
@@ -111,10 +112,22 @@ class MainInfoAboutObject: UIView {
         }
     }
     
-    override init(frame: CGRect = .zero) {
+    var addShadow: Bool
+    
+    init(frame: CGRect = .zero, addShadow: Bool = false) {
+        self.addShadow = addShadow
         super.init(frame: frame)
+        self.backgroundColor = .white
+        self.clipsToBounds = true
+        self.layer.cornerRadius = 10
         self.translatesAutoresizingMaskIntoConstraints = false
         configure()
+    }
+    
+    override func layoutSubviews() {
+        if addShadow {
+            self.dropShadow()
+        }
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -172,3 +185,4 @@ class MainInfoAboutObject: UIView {
     }
 
 }
+

@@ -9,8 +9,16 @@ import UIKit
 
 class SliderView: UIView {
     
-    var prices = [String]()
-    var credits = [String]()
+    var prices = [String]() {
+        didSet {
+            changeText()
+        }
+    }
+    var credits = [String]() {
+        didSet {
+            changeText()
+        }
+    }
     
     
     private lazy var costLabel: UILabel = {
@@ -24,7 +32,6 @@ class SliderView: UIView {
     
     private lazy var costValueLabel: UILabel = {
         let label = UILabel()
-        label.text = self.prices[0]
         label.textAlignment = .center
         label.textColor = UIColor(named: "ElGreen")
         label.font = UIFont.boldSystemFont(ofSize: 23)
@@ -50,7 +57,6 @@ class SliderView: UIView {
     
     private lazy var creditValueLabel: UILabel = {
         let label = UILabel()
-        label.text = self.credits[0]
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 23)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -81,11 +87,8 @@ class SliderView: UIView {
         return slider
     }()
 
-    init(frame: CGRect = .zero, prices: [String], credits: [String]) {
+    override init(frame: CGRect = .zero) {
         super.init(frame: frame)
-        
-        self.prices = prices
-        self.credits = credits
         
         self.clipsToBounds = true
         self.layer.cornerRadius = 10
@@ -96,6 +99,13 @@ class SliderView: UIView {
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func changeText() {
+        if (prices.count != 0 && credits.count != 0) {
+            self.costValueLabel.text = self.prices[0]
+            self.creditValueLabel.text = self.credits[0]
+        }
     }
     
     private func configure() {

@@ -23,6 +23,9 @@
 		25554D1328C3B67100E8AFDA /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25554D1228C3B67100E8AFDA /* Errors.swift */; };
 		255D97FE28DA4CAB002CBB38 /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255D97FD28DA4CAB002CBB38 /* Objects.swift */; };
 		255D980028DA5AAE002CBB38 /* ObjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255D97FF28DA5AAE002CBB38 /* ObjectTableViewCell.swift */; };
+		255F206A28F73BAD004B8DC2 /* NewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255F206928F73BAD004B8DC2 /* NewObject.swift */; };
+		257DC77528EF516A0002E548 /* FinishingOptionsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257DC77428EF516A0002E548 /* FinishingOptionsScrollView.swift */; };
+		257DC77828EF5D650002E548 /* FinishingOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257DC77728EF5D650002E548 /* FinishingOptionsView.swift */; };
 		257F7BD8281D90B000BCDB11 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BD7281D90B000BCDB11 /* MainViewController.swift */; };
 		257F7BDA281D9F4300BCDB11 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BD9281D9F4300BCDB11 /* AuthorizationViewController.swift */; };
 		257F7BDD281DAEDC00BCDB11 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BDC281DAEDC00BCDB11 /* HomeViewController.swift */; };
@@ -30,6 +33,7 @@
 		257F7BE1281DAF0500BCDB11 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BE0281DAF0500BCDB11 /* AboutViewController.swift */; };
 		257F7BE4281DCCBE00BCDB11 /* HouseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BE3281DCCBE00BCDB11 /* HouseTableViewCell.swift */; };
 		2584E44728EAEEA7009F0330 /* MainInfoAboutObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2584E44628EAEEA7009F0330 /* MainInfoAboutObjectView.swift */; };
+		258DFBE028F594520080185A /* ObjectImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258DFBDF28F594520080185A /* ObjectImages.swift */; };
 		25B0A46A289D517000DCE5CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25B0A469289D517000DCE5CA /* GoogleService-Info.plist */; };
 		25B0A48D289D974400DCE5CA /* RegistrateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B0A48C289D974400DCE5CA /* RegistrateViewController.swift */; };
 		25B9DEB328D8A88B00819045 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B9DEB228D8A88B00819045 /* StringExtension.swift */; };
@@ -68,6 +72,9 @@
 		255D97FA28D9E4A4002CBB38 /* Mariupol-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mariupol-Medium.ttf"; sourceTree = "<group>"; };
 		255D97FD28DA4CAB002CBB38 /* Objects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
 		255D97FF28DA5AAE002CBB38 /* ObjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectTableViewCell.swift; sourceTree = "<group>"; };
+		255F206928F73BAD004B8DC2 /* NewObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewObject.swift; sourceTree = "<group>"; };
+		257DC77428EF516A0002E548 /* FinishingOptionsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishingOptionsScrollView.swift; sourceTree = "<group>"; };
+		257DC77728EF5D650002E548 /* FinishingOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishingOptionsView.swift; sourceTree = "<group>"; };
 		257F7BD7281D90B000BCDB11 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		257F7BD9281D9F4300BCDB11 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		257F7BDC281DAEDC00BCDB11 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +82,7 @@
 		257F7BE0281DAF0500BCDB11 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		257F7BE3281DCCBE00BCDB11 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
 		2584E44628EAEEA7009F0330 /* MainInfoAboutObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoAboutObjectView.swift; sourceTree = "<group>"; };
+		258DFBDF28F594520080185A /* ObjectImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectImages.swift; sourceTree = "<group>"; };
 		25B0A469289D517000DCE5CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		25B0A48C289D974400DCE5CA /* RegistrateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrateViewController.swift; sourceTree = "<group>"; };
 		25B9DEB228D8A88B00819045 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -142,6 +150,8 @@
 				25554D1228C3B67100E8AFDA /* Errors.swift */,
 				251D6E5E28D23D73008ED74D /* UserInfoModel.swift */,
 				255D97FD28DA4CAB002CBB38 /* Objects.swift */,
+				255F206928F73BAD004B8DC2 /* NewObject.swift */,
+				258DFBDF28F594520080185A /* ObjectImages.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -154,6 +164,15 @@
 				255D97F828D9E4A4002CBB38 /* Mariupol-Bold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		257DC77628EF5D3A0002E548 /* FinishingOptions */ = {
+			isa = PBXGroup;
+			children = (
+				257DC77428EF516A0002E548 /* FinishingOptionsScrollView.swift */,
+				257DC77728EF5D650002E548 /* FinishingOptionsView.swift */,
+			);
+			path = FinishingOptions;
 			sourceTree = "<group>";
 		};
 		257F7BDB281DAE7F00BCDB11 /* Controllers */ = {
@@ -178,6 +197,7 @@
 		257F7BE2281DCC9B00BCDB11 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				257DC77628EF5D3A0002E548 /* FinishingOptions */,
 				257F7BE3281DCCBE00BCDB11 /* HouseTableViewCell.swift */,
 				25FB403328CA2736007FD823 /* AccountTableViewCell.swift */,
 				25FB403628CA467C007FD823 /* LogoutTableViewCell.swift */,
@@ -337,6 +357,7 @@
 				25D160D72816F0FE00B1AE47 /* FirstViewController.swift in Sources */,
 				2511736528E1E62400527977 /* LoadingView.swift in Sources */,
 				250C722028E4AA9300B38AF7 /* CustomSlider.swift in Sources */,
+				257DC77828EF5D650002E548 /* FinishingOptionsView.swift in Sources */,
 				25FB403428CA2736007FD823 /* AccountTableViewCell.swift in Sources */,
 				255D97FE28DA4CAB002CBB38 /* Objects.swift in Sources */,
 				250C721C28E32D3300B38AF7 /* ObjectViewController.swift in Sources */,
@@ -345,6 +366,7 @@
 				25B9DEB328D8A88B00819045 /* StringExtension.swift in Sources */,
 				25D160D32816F0FE00B1AE47 /* AppDelegate.swift in Sources */,
 				250C722528E5BAEC00B38AF7 /* SliderView.swift in Sources */,
+				255F206A28F73BAD004B8DC2 /* NewObject.swift in Sources */,
 				25FB404B28CE49E8007FD823 /* CustomtextField.swift in Sources */,
 				257F7BDF281DAEF700BCDB11 /* AccountViewController.swift in Sources */,
 				25D160D52816F0FE00B1AE47 /* SceneDelegate.swift in Sources */,
@@ -353,12 +375,14 @@
 				257F7BDA281D9F4300BCDB11 /* AuthorizationViewController.swift in Sources */,
 				25FB404728CCB6DA007FD823 /* SettingsViewController.swift in Sources */,
 				257F7BD8281D90B000BCDB11 /* MainViewController.swift in Sources */,
+				257DC77528EF516A0002E548 /* FinishingOptionsScrollView.swift in Sources */,
 				25227B6828E7975D0047B8C5 /* ViewController.swift in Sources */,
 				257F7BE1281DAF0500BCDB11 /* AboutViewController.swift in Sources */,
 				25FB403B28CB59A5007FD823 /* UserSettings.swift in Sources */,
 				251D6E5F28D23D73008ED74D /* UserInfoModel.swift in Sources */,
 				25FB403728CA467C007FD823 /* LogoutTableViewCell.swift in Sources */,
 				2584E44728EAEEA7009F0330 /* MainInfoAboutObjectView.swift in Sources */,
+				258DFBE028F594520080185A /* ObjectImages.swift in Sources */,
 				25554D0D28C292F200E8AFDA /* UserAuthorization.swift in Sources */,
 				255D980028DA5AAE002CBB38 /* ObjectTableViewCell.swift in Sources */,
 				257F7BDD281DAEDC00BCDB11 /* HomeViewController.swift in Sources */,

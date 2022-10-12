@@ -27,15 +27,15 @@ class ObjectViewController: UIViewController {
     
     private lazy var imageScrollIndicator: UIPageControl = {
         let pageController = UIPageControl()
-        pageController.numberOfPages = images.count
         pageController.currentPageIndicatorTintColor = UIColor(named: "ElGreen")
+        pageController.pageIndicatorTintColor = .systemGray6
         pageController.translatesAutoresizingMaskIntoConstraints = false
         return pageController
     }()
     
     private lazy var mainScrollView: UIScrollView = {
         let view = UIScrollView()
-        view.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 200)
+        view.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 700)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -63,7 +63,7 @@ class ObjectViewController: UIViewController {
     }()
     
     private lazy var testtt: SliderView = {
-        let view = SliderView(prices: ["768 831 ₽", "1 421 613 ₽", "1 827 788 ₽"], credits: ["11 922 ₽/месяц", "21 932 ₽/месяц", "28 598 ₽/месяц"])
+        let view = SliderView() //prices: ["768 831 ₽", "1 421 613 ₽", "1 827 788 ₽"], credits: ["11 922 ₽/месяц", "21 932 ₽/месяц", "28 598 ₽/месяц"]
         return view
     }()
     
@@ -79,8 +79,37 @@ class ObjectViewController: UIViewController {
     }()
     
     private lazy var infoAboutIbject: MainInfoAboutObject = {
-        let view = MainInfoAboutObject()
+        let view = MainInfoAboutObject(addShadow: true)
         return view
+    }()
+    
+    
+    private lazy var interiorDecorationView: FinishingOptionsView = {
+        let view = FinishingOptionsView(sectionName: "Варианты внутренней отделки:", data: ["option1":"Под покраску или обои",
+                                                                                            "option2":"Вагонка, имитация бруса",
+                                                                                            "option3":"Фанера, шпон",
+                                                                                            "option4":"Стендовые панели"])
+        return view
+    }()
+    
+    private lazy var exteriorDecorationView: FinishingOptionsView = {
+        let view = FinishingOptionsView(sectionName: "Варианты наружней отделки:", data: ["option11":"Имитация бруса",
+                                                                                            "option12":"Клинкерный кирпич",
+                                                                                            "option13":"Металл, дерево",
+                                                                                            "option14":"Штукатурный фасад"])
+        return view
+    }()
+    
+    
+    private lazy var moreDetailButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Подробнее", for: .normal)
+        button.titleLabel?.textAlignment = .center
+        button.backgroundColor = UIColor(named: "ElGreen")
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 10
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
     init(name: String, objectId: String) {
@@ -97,19 +126,20 @@ class ObjectViewController: UIViewController {
         super.viewDidLoad()
     
         view.backgroundColor = .white
+        
         let saveG = view.safeAreaLayoutGuide
         
-        let imageName = ["firstHouse", "secondHouse"]
         
         infoAboutIbject.paramers = Parametrs(size: "10", square: "10", numberOfRooms: "20", numberOfFloors: "20")
         
-        for name in imageName {
-            let image = UIImage(named: name)
-            let imageView = UIImageView(image: image)
-            imageView.contentMode = .scaleAspectFill
-            imageScrollView.addSubview(imageView)
-            images.append(imageView)
-        }
+//        for name in imageName {
+//            let image = UIImage(named: name)
+//            let imageView = UIImageView(image: image)
+//            imageView.contentMode = .scaleAspectFill
+//            imageScrollView.addSubview(imageView)
+//            images.append(imageView)
+//        }
+        downloadImages(objectId: objectId)
         
         view.addSubview(mainScrollView)
         mainScrollView.addSubview(contentView)
@@ -120,7 +150,9 @@ class ObjectViewController: UIViewController {
         contentView.addSubview(testtt)
         contentView.addSubview(applicationButton)
         contentView.addSubview(infoAboutIbject)
-
+        contentView.addSubview(interiorDecorationView)
+        contentView.addSubview(exteriorDecorationView)
+        contentView.addSubview(moreDetailButton)
         
         imageScrollIndicator.addTarget(self, action: #selector(pageControlDidChanged(_:)), for: .valueChanged)
         
@@ -145,12 +177,17 @@ class ObjectViewController: UIViewController {
 //        imageScrollIndicator.widthAnchor.constraint(equalTo: imageScrollView.widthAnchor).isActive = true
         imageScrollIndicator.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
-        pilesView.topAnchor.constraint(equalTo: imageScrollIndicator.bottomAnchor).isActive = true
+        pilesView.topAnchor.constraint(equalTo: imageScrollIndicator.bottomAnchor, constant: 10).isActive = true
         pilesView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
         pilesView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         pilesView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
-        testtt.topAnchor.constraint(equalTo: pilesView.bottomAnchor, constant: 20).isActive = true
+        infoAboutIbject.topAnchor.constraint(equalTo: pilesView.bottomAnchor, constant: 30).isActive = true
+        infoAboutIbject.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+        infoAboutIbject.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        infoAboutIbject.heightAnchor.constraint(equalToConstant: 135).isActive = true
+        
+        testtt.topAnchor.constraint(equalTo: infoAboutIbject.bottomAnchor, constant: 20).isActive = true
         testtt.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
         testtt.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         testtt.heightAnchor.constraint(equalToConstant: 200).isActive = true
@@ -160,26 +197,149 @@ class ObjectViewController: UIViewController {
         applicationButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         applicationButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        infoAboutIbject.topAnchor.constraint(equalTo: applicationButton.bottomAnchor, constant: 20).isActive = true
-        infoAboutIbject.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40).isActive = true
-        infoAboutIbject.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40).isActive = true
-        infoAboutIbject.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        interiorDecorationView.topAnchor.constraint(equalTo: applicationButton.bottomAnchor, constant: 20).isActive = true
+        interiorDecorationView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+        interiorDecorationView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        interiorDecorationView.heightAnchor.constraint(equalToConstant: 305).isActive = true
+        
+        exteriorDecorationView.topAnchor.constraint(equalTo: interiorDecorationView.bottomAnchor).isActive = true
+        exteriorDecorationView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+        exteriorDecorationView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        exteriorDecorationView.heightAnchor.constraint(equalToConstant: 305).isActive = true
+        
+        moreDetailButton.topAnchor.constraint(equalTo: exteriorDecorationView.bottomAnchor, constant: 20).isActive = true
+        moreDetailButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+        moreDetailButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        moreDetailButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         imageScrollView.delegate = self
+        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        for (index, imageView) in images.enumerated() {
-            imageView.frame.size = imageScrollView.frame.size
-            imageView.frame.origin.x = imageScrollView.frame.width * CGFloat(index)
-            imageView.frame.origin.y = 0
+    private func downloadImages (objectId: String) {
+        
+        let getInfo = ApiRequest(endPoint: "api/getFullInfoAboutObject/?object_id=\(objectId)")
+        
+        getInfo.getFullInfoAboutObject { result in
+            switch result {
+            case .success(let NewObject):
+                print(NewObject)
+                DispatchQueue.main.async {
+                    self.infoAboutIbject.paramers = Parametrs(size: NewObject.mainInfo.size, square: String(NewObject.mainInfo.square), numberOfRooms: String(NewObject.mainInfo.numberOfRooms), numberOfFloors: NewObject.mainInfo.numberOfFloors)
+                    self.testtt.prices = [NewObject.prices.fullFirstPrice, NewObject.prices.fullSecondPrice, NewObject.prices.fullThridPrice]
+                    self.testtt.credits = [NewObject.prices.creditFirstPrice, NewObject.prices.creditSecondPrice, NewObject.prices.creditThridPrice]
+                }
+                let serialQueue = DispatchQueue(label: "queuename")
+                serialQueue.sync {
+                    for (_, link) in NewObject.linksOnImages.enumerated() {
+                        
+                        let getImage = ApiRequest(endPoint: link.linkOnImage)
+                        
+                        getImage.getImage { result in
+                            switch result {
+                                
+                            case .success(let image) :
+                                DispatchQueue.main.sync {
+                                    
+                                    let finalImage = self.cropImage(image: UIImage(data: image)!)
+                                    let imageView = UIImageView(image: finalImage)
+                                    imageView.contentMode = .scaleAspectFill
+                                    self.imageScrollView.addSubview(imageView)
+                                    self.images.append(imageView)
+                                    
+                                    self.imageScrollIndicator.numberOfPages = NewObject.linksOnImages.count
+                                    
+                                    
+                                    for (index, imageView) in self.images.enumerated() {
+                                        imageView.frame.size = self.imageScrollView.frame.size
+                                        imageView.frame.origin.x = self.imageScrollView.frame.width * CGFloat(index)
+                                        imageView.frame.origin.y = 0
+                                    }
+                                    
+                                    self.imageScrollView.contentSize = CGSize(width: self.imageScrollView.frame.width * CGFloat(self.images.count), height: self.imageScrollView.frame.height)
+                                    self.imageScrollView.isPagingEnabled = true
+                                }
+                            case .failure(let ApiError): print(ApiError)
+                            }
+                        }
+                    }
+                }
+            case .failure(let ApiError): print(ApiError)
+            }
         }
         
-        imageScrollView.contentSize = CGSize(width: imageScrollView.frame.width * CGFloat(images.count), height: imageScrollView.frame.height)
-        imageScrollView.isPagingEnabled = true
+//        getInfo.getFullInfoAboutObject(completion: { result in
+//            switch result {
+//            case .success(let NewObject):
+//                print(NewObject)
+//                let serialQueue = DispatchQueue(label: "queuename")
+//                serialQueue.sync {
+//                    for (_, link) in NewObject.links.enumerated() {
+//
+//                        let getImage = ApiRequest(endPoint: link.linkOnImage)
+//
+//                        getImage.getImage { result in
+//                            switch result {
+//
+//                            case .success(let image) :
+//                                DispatchQueue.main.sync {
+//
+//                                    let finalImage = self.cropImage(image: UIImage(data: image)!)
+//                                    let imageView = UIImageView(image: finalImage)
+//                                    imageView.contentMode = .scaleAspectFill
+//                                    self.imageScrollView.addSubview(imageView)
+//                                    self.images.append(imageView)
+//
+//                                    self.imageScrollIndicator.numberOfPages = NewObject._links.count
+//
+//
+//                                    for (index, imageView) in self.images.enumerated() {
+//                                        imageView.frame.size = self.imageScrollView.frame.size
+//                                        imageView.frame.origin.x = self.imageScrollView.frame.width * CGFloat(index)
+//                                        imageView.frame.origin.y = 0
+//                                    }
+//
+//                                    self.imageScrollView.contentSize = CGSize(width: self.imageScrollView.frame.width * CGFloat(self.images.count), height: self.imageScrollView.frame.height)
+//                                    self.imageScrollView.isPagingEnabled = true
+//                                }
+//
+//                            case .failure(let ApiError):
+//                                print(ApiError)
+//                            }
+//                        }
+//                    }
+//                }
+//
+//            case .failure(let error):
+//                print(error)
+//            }
+//        })
     }
+
     
+    func cropImage(image: UIImage) -> UIImage {
+
+        let rect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.width*0.6875) //    1536 x 2048 pixels
+
+        let cgImage = image.cgImage!
+
+        let croppedCGImage = cgImage.cropping(to: rect)
+        return UIImage(cgImage: croppedCGImage!)
+    }
+
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        for (index, imageView) in images.enumerated() {
+//            imageView.frame.size = imageScrollView.frame.size
+//            imageView.frame.origin.x = imageScrollView.frame.width * CGFloat(index)
+//            imageView.frame.origin.y = 0
+//        }
+//
+//        imageScrollView.contentSize = CGSize(width: imageScrollView.frame.width * CGFloat(images.count), height: imageScrollView.frame.height)
+//        imageScrollView.isPagingEnabled = true
+//    }
+//
     @objc private func pageControlDidChanged(_ sender: UIPageControl) {
         let current = sender.currentPage
         imageScrollView.setContentOffset(CGPoint(x: imageScrollView.frame.width * CGFloat(current), y: 0), animated: true)

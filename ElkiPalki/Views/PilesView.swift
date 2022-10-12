@@ -47,12 +47,15 @@ class PilesView: UIView {
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundColor = .systemGray6
+        self.backgroundColor = .white
         self.clipsToBounds = true
         self.layer.cornerRadius = 10
         configure()
     }
     
+    override func layoutSubviews() {
+        dropShadow()
+    }
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
