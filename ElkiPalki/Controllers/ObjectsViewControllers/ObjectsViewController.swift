@@ -79,9 +79,9 @@ class ObjectsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 getObject.getAllObjects(completion: { result in
                     switch result {
                     case .success(let allObjects):
-                        for (index, object) in allObjects.objects.enumerated() {
+                        for (_, object) in allObjects.objects.enumerated() {
                             self.models[0].options.append(ObjectOptions(object: object, handler: {
-                                self.show(ObjectViewController(name: object.name, objectId: String(object.id)), sender: self)
+                                self.show(ObjectViewController(objectId: String(object.id)), sender: self)
                             }))
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
@@ -113,7 +113,7 @@ class ObjectsViewController: UIViewController, UITableViewDelegate, UITableViewD
                     }
                     for (_, object) in allObjects.objects.enumerated() {
                         self.models[0].options.append(ObjectOptions(object: object, handler: {
-                            self.show(ObjectViewController(name: object.name, objectId: String(object.id)), sender: self)
+                            self.show(ObjectViewController(objectId: String(object.id)), sender: self)
                         }))
                         DispatchQueue.main.async {
                             self.tableView.reloadData()

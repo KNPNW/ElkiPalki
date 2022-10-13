@@ -84,11 +84,11 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 return
             }),
             .staticCell(model: AccountOptions(title: "Активные проекты", icon: UIImage(systemName: "house"), iconBackGroundColor: UIColor(named: "ElGreen")){
-                self.navigationController?.pushViewController(ActiveProjectViewController(), animated: true)
+                self.navigationController?.pushViewController(ActiveProjectsViewController(), animated: true)
                 return
             }),
             .staticCell(model: AccountOptions(title: "Мои заявки", icon: UIImage(systemName: "doc.text"), iconBackGroundColor: UIColor(named: "ElGreen")){
-                self.navigationController?.pushViewController(ApplicationViewController(), animated: true)
+                self.navigationController?.pushViewController(ApplicationsViewController(), animated: true)
                 return
             }),
             .staticCell(model: AccountOptions(title: "Настройки", icon: UIImage(systemName: "gearshape"), iconBackGroundColor: UIColor(named: "ElGreen")){
