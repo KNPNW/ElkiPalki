@@ -2,26 +2,19 @@
 //  TableViewCellAnimation.swift
 //  ElkiPalki
 //
-//  Created by Кирилл Падалица on 05.07.2022.
+//  Created by Кирилл Падалица on 13.10.2022.
 //
 
-//import Foundation
 //import UIKit
 //
-//extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
+//class TableViewCellAnimation: NSObject, UIViewControllerAnimatedTransitioning {
+//    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+//        return 0
+//    }
 //    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(indexPath.row)
+//    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+//        <#code#>
 //    }
-//}
-// 
-//class TipInCellAnimator {
-//  class func animate(cell:UITableViewCell) {
-//      if let view = cell.contentView {
-//          view.layer.opacity = 0.1
-//          UIView.animate(withDuration: 1.4) {
-//        view.layer.opacity = 1
-//      }
-//    }
-//  }
+//    
+//
 //}

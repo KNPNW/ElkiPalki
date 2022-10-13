@@ -6,7 +6,7 @@ struct SectionObject {
 }
 
 struct ObjectOptions {
-    let object: Info
+    let object: MainInfo
     let handler: (()->Void)
     
 }
@@ -81,7 +81,12 @@ class ObjectsViewController: UIViewController, UITableViewDelegate, UITableViewD
                     case .success(let allObjects):
                         for (_, object) in allObjects.objects.enumerated() {
                             self.models[0].options.append(ObjectOptions(object: object, handler: {
-                                self.show(ObjectViewController(objectId: String(object.id)), sender: self)
+                                let objectViewController = ObjectViewController(objectId: String(object.id))
+//                                objectViewController.modalPresentationStyle = .custom
+//                                objectViewController.transitioningDelegate = self
+//
+//                                self.present(objectViewController, animated: true, completion: nil)
+                                self.show(objectViewController, sender: self)
                             }))
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
@@ -111,10 +116,14 @@ class ObjectsViewController: UIViewController, UITableViewDelegate, UITableViewD
                     DispatchQueue.main.async {
                         self.loadView.removeFromSuperview()
                     }
-                    print(allObjects)
                     for (_, object) in allObjects.objects.enumerated() {
                         self.models[0].options.append(ObjectOptions(object: object, handler: {
-                            self.show(ObjectViewController(objectId: String(object.id)), sender: self)
+                            let objectViewController = ObjectViewController(objectId: String(object.id))
+//                            objectViewController.modalPresentationStyle = .custom
+//                            objectViewController.transitioningDelegate = self
+//
+//                            self.present(objectViewController, animated: true, completion: nil)
+                              self.show(objectViewController, sender: self)
                         }))
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
@@ -157,3 +166,46 @@ class ObjectsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 }
 
+//extension ObjectsViewController: UIViewControllerTransitioningDelegate {
+//    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        return self
+//    }
+//    
+//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        return self
+//    }
+//}
+
+//extension ObjectsViewController: UIViewControllerAnimatedTransitioning {
+//    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+//        return 1.0
+//    }
+//
+//    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+//        guard let fromView = transitionContext.viewController(forKey: .from)?.view,
+//              let toView = transitionContext.viewController(forKey: .to )?.view else {
+//            return
+//        }
+//
+//        let isPresenting = (fromView == view)
+//
+//        let presentingView = isPresenting ? toView : fromView
+//
+//        if isPresenting {
+//            transitionContext.containerView.addSubview(presentingView)
+//        }
+//
+//        let animateDuration = transitionDuration(using: transitionContext)
+//        UIView.animate(withDuration: animateDuration) {
+//            presentingView.frame = CGRect(x: 0, y: UIScreen.main.bounds.size.height/2, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height/2)
+//        } completion: { isSuccess in
+//            if !isPresenting {
+//                presentingView.removeFromSuperview()
+//            }
+//
+//            transitionContext.completeTransition(isSuccess)
+//        }
+//
+//
+//    }
+//}

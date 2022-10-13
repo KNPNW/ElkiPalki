@@ -19,6 +19,7 @@ struct ApiRequest {
         self.resourseURL = resourseURL
     }
     
+    //MARK: - Registration
     func registration(_ userInfo: UsetAuthorization, completion: @escaping(Result<Tokens, ApiErrors>) -> Void) {
         do {
             var urlRequest = URLRequest(url: resourseURL)
@@ -59,6 +60,7 @@ struct ApiRequest {
         }
     }
     
+    //MARK: - Login
     func login(_ userInfo: UsetAuthorization, completion: @escaping(Result<Tokens, ApiErrors>) -> Void) {
         do {
             var urlRequest = URLRequest(url: resourseURL)
@@ -99,7 +101,7 @@ struct ApiRequest {
     }
     
     
-    
+    //MARK: - UpdateUserInfo
     func updateUserInfo(_ userInfo: UserInfoModel, completion: @escaping(Result<Bool, ApiErrors>) -> Void) {
         do {
             var urlRequest = URLRequest(url: resourseURL)
@@ -136,7 +138,7 @@ struct ApiRequest {
     }
     
     
-    
+    //MARK: - GetAllObjects
     func getAllObjects(completion: @escaping(Result<Objects, ApiErrors>) -> Void) {
         let task = URLSession.shared.dataTask(with: resourseURL) {data, response, _ in
             guard let httpResponse = response as? HTTPURLResponse,
@@ -166,6 +168,8 @@ struct ApiRequest {
         task.resume()
     }
     
+    
+    //MARK: - GetFullInfoAboutObject
     func getFullInfoAboutObject(completion: @escaping(Result<Object, ApiErrors>) -> Void) {
         let task = URLSession.shared.dataTask(with: resourseURL) {data, response, _ in
             guard let httpResponse = response as? HTTPURLResponse,
@@ -195,6 +199,7 @@ struct ApiRequest {
         task.resume()
     }
     
+    //MARK: - GetImage
     func getImage(completion: @escaping(Result<Data, ApiErrors>) -> Void) {
         let task = URLSession.shared.dataTask(with: resourseURL) {data, response, _ in
             guard let _ = response as? HTTPURLResponse,

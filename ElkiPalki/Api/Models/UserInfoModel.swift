@@ -1,10 +1,3 @@
-//
-//  UserInfoModel.swift
-//  ElkiPalki
-//
-//  Created by Кирилл Падалица on 14.09.2022.
-//
-
 import Foundation
 
 final class UserInfoModel: Codable {

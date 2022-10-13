@@ -1,9 +1,10 @@
 import UIKit
+import SafariServices
 
 class ObjectViewController: UIViewController {
     
     var objectId: String
-    
+    var url: String?
     var images = [UIImageView]()
     
     private lazy var mainScrollView: UIScrollView = {
@@ -183,13 +184,19 @@ class ObjectViewController: UIViewController {
         exteriorDecorationView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         exteriorDecorationView.heightAnchor.constraint(equalToConstant: 305).isActive = true
         
-        moreDetailButton.topAnchor.constraint(equalTo: exteriorDecorationView.bottomAnchor, constant: 20).isActive = true
+        moreDetailButton.topAnchor.constraint(equalTo: exteriorDecorationView.bottomAnchor, constant: 10).isActive = true
         moreDetailButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
         moreDetailButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         moreDetailButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        moreDetailButton.addTarget(self, action: #selector(openUrl), for: .touchUpInside)
         
         imageScrollView.delegate = self
         
+    }
+    
+    @objc func openUrl() {
+        let svc = SFSafariViewController(url: URL(string: url ?? "https://elpal.ru")!)
+        present(svc, animated: true, completion: nil)
     }
     
     private func downloadInfoAboutObject() {
@@ -204,6 +211,7 @@ class ObjectViewController: UIViewController {
                     self.infoAboutObjectView.paramers = Parametrs(size: info.mainInfo!.size, square: info.mainInfo!.square, numberOfRooms: info.mainInfo!.numberOfRooms, numberOfFloors: info.mainInfo!.numberOfFloors)
                     self.priceSliderView.prices = [info.prices!.fullFirstPrice, info.prices!.fullSecondPrice, info.prices!.fullThridPrice]
                     self.priceSliderView.credits = [info.prices!.creditFirstPrice, info.prices!.creditSecondPrice, info.prices!.creditThridPrice]
+                    self.url = info.mainInfo?.linkOnSite
                 }
                 let serialQueue = DispatchQueue(label: "queuename")
                 serialQueue.sync {
