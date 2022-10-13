@@ -166,7 +166,7 @@ struct ApiRequest {
         task.resume()
     }
     
-    func getFullInfoAboutObject(completion: @escaping(Result<NewObject, ApiErrors>) -> Void) {
+    func getFullInfoAboutObject(completion: @escaping(Result<Object, ApiErrors>) -> Void) {
         let task = URLSession.shared.dataTask(with: resourseURL) {data, response, _ in
             guard let httpResponse = response as? HTTPURLResponse,
                   let jsonData = data else {
@@ -176,7 +176,7 @@ struct ApiRequest {
         
             if httpResponse.statusCode == 200 {
                 do {
-                    let responseData = try JSONDecoder().decode(NewObject.self, from: jsonData)
+                    let responseData = try JSONDecoder().decode(Object.self, from: jsonData)
                     completion(.success(responseData))
                 } catch {
                     completion(.failure(.decodingProblem))

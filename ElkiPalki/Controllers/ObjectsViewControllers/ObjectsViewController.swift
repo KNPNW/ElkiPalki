@@ -6,7 +6,7 @@ struct SectionObject {
 }
 
 struct ObjectOptions {
-    let object: object
+    let object: Info
     let handler: (()->Void)
     
 }
@@ -111,6 +111,7 @@ class ObjectsViewController: UIViewController, UITableViewDelegate, UITableViewD
                     DispatchQueue.main.async {
                         self.loadView.removeFromSuperview()
                     }
+                    print(allObjects)
                     for (_, object) in allObjects.objects.enumerated() {
                         self.models[0].options.append(ObjectOptions(object: object, handler: {
                             self.show(ObjectViewController(objectId: String(object.id)), sender: self)

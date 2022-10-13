@@ -6,7 +6,6 @@ class ObjectViewController: UIViewController {
     
     var images = [UIImageView]()
     
-    
     private lazy var mainScrollView: UIScrollView = {
         let view = UIScrollView()
         view.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 700)
@@ -20,7 +19,7 @@ class ObjectViewController: UIViewController {
         return view
     }()
     
-    private lazy var nameLabel: UILabel = {
+    private lazy var objectNameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
         label.font = UIFont.boldSystemFont(ofSize: 24)
@@ -117,13 +116,13 @@ class ObjectViewController: UIViewController {
     
         view.backgroundColor = .white
                 
-        downloadInfoAboutObject(objectId: objectId)
+        downloadInfoAboutObject()
         
         view.addSubview(mainScrollView)
         
         mainScrollView.addSubview(contentView)
         
-        contentView.addSubview(nameLabel)
+        contentView.addSubview(objectNameLabel)
         contentView.addSubview(imageScrollView)
         contentView.addSubview(imageScrollIndicator)
         contentView.addSubview(pilesView)
@@ -138,12 +137,12 @@ class ObjectViewController: UIViewController {
         mainScrollView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
         mainScrollView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor).isActive = true
         
-        nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
-        nameLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        objectNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        objectNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+        objectNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        objectNameLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
-        imageScrollView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20).isActive = true
+        imageScrollView.topAnchor.constraint(equalTo: objectNameLabel.bottomAnchor, constant: 20).isActive = true
         imageScrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
         imageScrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         imageScrollView.heightAnchor.constraint(equalToConstant: 190).isActive = true
@@ -193,23 +192,22 @@ class ObjectViewController: UIViewController {
         
     }
     
-    private func downloadInfoAboutObject (objectId: String) {
+    private func downloadInfoAboutObject() {
         
-        let getInfo = ApiRequest(endPoint: "api/getFullInfoAboutObject/?object_id=\(objectId)")
+        let getInfo = ApiRequest(endPoint: "api/getFullInfoAboutObject/?object_id=\(self.objectId)")
         
         getInfo.getFullInfoAboutObject { result in
             switch result {
-            case .success(let NewObject):
-                print(NewObject)
+            case .success(let info):
                 DispatchQueue.main.async {
-                    self.nameLabel.text = NewObject.mainInfo.name
-                    self.infoAboutObjectView.paramers = Parametrs(size: NewObject.mainInfo.size, square: String(NewObject.mainInfo.square), numberOfRooms: String(NewObject.mainInfo.numberOfRooms), numberOfFloors: NewObject.mainInfo.numberOfFloors)
-                    self.priceSliderView.prices = [NewObject.prices.fullFirstPrice, NewObject.prices.fullSecondPrice, NewObject.prices.fullThridPrice]
-                    self.priceSliderView.credits = [NewObject.prices.creditFirstPrice, NewObject.prices.creditSecondPrice, NewObject.prices.creditThridPrice]
+                    self.objectNameLabel.text = info.mainInfo!.name
+                    self.infoAboutObjectView.paramers = Parametrs(size: info.mainInfo!.size, square: info.mainInfo!.square, numberOfRooms: info.mainInfo!.numberOfRooms, numberOfFloors: info.mainInfo!.numberOfFloors)
+                    self.priceSliderView.prices = [info.prices!.fullFirstPrice, info.prices!.fullSecondPrice, info.prices!.fullThridPrice]
+                    self.priceSliderView.credits = [info.prices!.creditFirstPrice, info.prices!.creditSecondPrice, info.prices!.creditThridPrice]
                 }
                 let serialQueue = DispatchQueue(label: "queuename")
                 serialQueue.sync {
-                    for (_, link) in NewObject.linksOnImages.enumerated() {
+                    for (_, link) in info.linksOnImages!.enumerated() {
                         
                         let getImage = ApiRequest(endPoint: link.linkOnImage)
                         
@@ -225,7 +223,7 @@ class ObjectViewController: UIViewController {
                                     self.imageScrollView.addSubview(imageView)
                                     self.images.append(imageView)
                                     
-                                    self.imageScrollIndicator.numberOfPages = NewObject.linksOnImages.count
+                                    self.imageScrollIndicator.numberOfPages = info.linksOnImages!.count
                                     
                                     
                                     for (index, imageView) in self.images.enumerated() {
