@@ -22,7 +22,7 @@ class FirstViewController: UIViewController {
         let button = UIButton()
         button.backgroundColor = UIColor(named: "ElGreen")
         button.layer.cornerRadius = 10
-        button.setTitle("Войти", for: .normal)
+        button.setTitle(NSLocalizedString("Sing in", comment: ""), for: .normal)
         button.titleLabel?.textAlignment = .center
         button.setTitleColor(UIColor(named: "White"), for: UIControl.State.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -33,7 +33,7 @@ class FirstViewController: UIViewController {
         let button = UIButton()
         button.backgroundColor = UIColor(named: "ElGreen")
         button.layer.cornerRadius = 10
-        button.setTitle("Зарегистрироваться", for: .normal)
+        button.setTitle(NSLocalizedString("Sing up", comment: ""), for: .normal)
         button.titleLabel?.textAlignment = .center
         button.setTitleColor(UIColor(named: "White"), for: UIControl.State.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -44,7 +44,7 @@ class FirstViewController: UIViewController {
         let button = UIButton()
         button.backgroundColor = UIColor(named: "White")
         button.layer.cornerRadius = 10
-        button.setTitle("Прододжить без регистрации", for: .normal)
+        button.setTitle(NSLocalizedString("Continue without registration", comment: ""), for: .normal)
         button.setTitleColor(UIColor(named: "ElGreen"), for: UIControl.State.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

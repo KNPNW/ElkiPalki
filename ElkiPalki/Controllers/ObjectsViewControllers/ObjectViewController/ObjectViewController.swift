@@ -94,7 +94,7 @@ class ObjectViewController: UIViewController {
     
     private lazy var moreDetailButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Подробнее", for: .normal)
+        button.setTitle("Подробнее на сайте", for: .normal)
         button.titleLabel?.textAlignment = .center
         button.backgroundColor = UIColor(named: "ElGreen")
         button.clipsToBounds = true

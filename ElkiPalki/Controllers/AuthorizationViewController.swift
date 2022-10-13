@@ -4,7 +4,7 @@ class AuthorizationViewController: UIViewController {
     
     let authorizationLabel : UILabel = {
         let label = UILabel()
-        label.text = "Авторизация"
+        label.text = NSLocalizedString("Login", comment: "")
         label.textColor = UIColor(named: "White")
         label.font = UIFont.boldSystemFont(ofSize: 40.0)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -38,7 +38,7 @@ class AuthorizationViewController: UIViewController {
         let button = UIButton()
         button.backgroundColor = UIColor(named: "White")
         button.layer.cornerRadius = 10
-        button.setTitle("Войти", for: .normal)
+        button.setTitle(NSLocalizedString("Sing in", comment: ""), for: .normal)
         button.titleLabel?.textAlignment = .center
         button.setTitleColor(UIColor(named: "ElGreen"), for: UIControl.State.normal)
         button.translatesAutoresizingMaskIntoConstraints = false

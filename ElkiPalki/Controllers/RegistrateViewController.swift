@@ -46,7 +46,7 @@ class RegistrateViewController: UIViewController {
         let button = UIButton()
         button.backgroundColor = UIColor(named: "ElGreen")
         button.layer.cornerRadius = 10
-        button.setTitle("Зарегистрироваться", for: .normal)
+        button.setTitle(NSLocalizedString("Sing up", comment: ""), for: .normal)
         button.titleLabel?.textAlignment = .center
         button.setTitleColor(UIColor(named: "White"), for: UIControl.State.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
