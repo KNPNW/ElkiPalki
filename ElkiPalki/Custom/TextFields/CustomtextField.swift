@@ -1,9 +1,8 @@
 import UIKit
-import SwiftUI
 
-class CustomTextField: UIView {
+class CustomTextField: UIView, UITextViewDelegate {
     
-    enum textFieldTypes{
+    enum typeTF{
         case phone
         case date
         case name
@@ -11,25 +10,31 @@ class CustomTextField: UIView {
         case password
     }
     
-    private var typeTextField: textFieldTypes?
+    private var type: typeTF?
     private var wrongMessage: String?
+    private var animationWrongLabel: Bool = false
+    var haveError: Bool = false
     
-    private lazy var picker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 300, height: 216))
+    private lazy var datePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.datePickerMode = .date
+        picker.preferredDatePickerStyle = .wheels
+        return picker
+    }()
     
     let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
         label.textColor = .black
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 15)
-        
+        label.font = UIFont(name: "Montserrat-Bold", size: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let textField: UITextField = {
         let textField = TextField()
-        textField.layer.borderColor = UIColor(named: "BorderColorForTextField")?.cgColor
+        textField.layer.borderColor = UIColor(named: "textFieldBorderColor")?.cgColor
         textField.layer.cornerRadius = 10
         textField.layer.borderWidth = 1.0
 
@@ -37,27 +42,50 @@ class CustomTextField: UIView {
         return textField
     }()
     
+    private class TextField: UITextField {
+        override func editingRect(forBounds bounds: CGRect) -> CGRect {
+            return bounds.insetBy(dx: 10, dy: 0)
+        }
+        
+        override func textRect(forBounds bounds: CGRect) -> CGRect {
+            return bounds.insetBy(dx: 10, dy: 0)
+        }
+    }
+    
     let wrongLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.textColor = UIColor(named: "Red")
+        label.textColor = UIColor(named: "errorColor")
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 10)
-        
+        label.font = UIFont(name: "Montserrat-Medium", size: 10)
+        label.alpha = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    init(frame: CGRect = .zero, title: String, titleColor: UIColor = .black, backgroundColor:UIColor = .white, placeholder: String = "", keyboardType: UIKeyboardType? = nil, isDate: Bool? = nil, typeTextField: textFieldTypes? = nil, wrongMessage: String? = nil) {
+    init(frame: CGRect = .zero, title: String = "",
+         titleColor: UIColor = UIColor(named: "textFieldLabelColor")!, backgroundColor: UIColor = UIColor(named: "textFieldBackGroundColor")!,
+         placeholder: String = "", keyboardType: UIKeyboardType? = nil,
+         isDate: Bool? = nil, typeTextField:
+         typeTF? = nil,
+         wrongMessage: String? = nil) {
+        
         super.init(frame: frame)
+        self.type = typeTextField
+        self.wrongMessage = wrongMessage
+        
         titleLabel.text = title
         titleLabel.textColor = titleColor
+        
         textField.backgroundColor = backgroundColor
         textField.placeholder = placeholder
+        
+        wrongLabel.text = wrongMessage
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
         setTypeKeybord(keyboardType: keyboardType)
-        addDatePicker(isDate: isDate)
-        self.typeTextField = typeTextField
-        self.wrongMessage = wrongMessage
+        
         configure()
     }
     
@@ -71,39 +99,116 @@ class CustomTextField: UIView {
         configure()
     }
     
+    private func configure() {
+        textField.delegate = self
+        
+        addSubview(textField)
+        addSubview(wrongLabel)
+        
+        if titleLabel.text != "" {
+            addSubview(titleLabel)
+            titleLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 3).isActive = true
+            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+            titleLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
+            
+            textField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5).isActive = true
+        } else {
+            textField.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        }
+        
+        textField.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        textField.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        textField.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        
+        wrongLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 11).isActive = true
+        wrongLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        wrongLabel.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 1.5).isActive = true
+        wrongLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
+
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        var color: UIColor
+        if haveError {
+            color = UIColor(named: "errorColor") ?? .red
+        } else {
+            color = UIColor(named: "successColor") ?? .green
+        }
+        UIView.animateKeyframes(withDuration: 0.5, delay: 0.0, options: .calculationModeLinear, animations: {
+            self.textField.layer.borderColor = color.cgColor
+            UILabel.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5) {
+                self.textField.layer.borderWidth = 2
+            }
+        }, completion: { _ in
+            self.textField.layer.borderColor = color.cgColor
+            self.textField.layer.borderWidth = 2
+        })
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        UIView.animateKeyframes(withDuration: 0.5, delay: 0.0, options: .calculationModeLinear, animations: {
+            textField.layer.borderColor = UIColor(named: "textFieldBorderColor")?.cgColor
+            UILabel.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5) {
+                self.textField.layer.borderWidth = 1
+            }
+        }, completion: { _ in
+            self.textField.layer.borderColor = UIColor(named: "textFieldBorderColor")?.cgColor
+            self.textField.layer.borderWidth = 1
+        })
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+    }
+    
+    func showError() {
+        textField.shakeAnimation()
+        
+        if !haveError {
+            self.wrongLabel.frame.origin.y =  self.wrongLabel.frame.origin.y - 2
+            
+            UIView.animateKeyframes(withDuration: 0.5, delay: 0.0, options: .calculationModeLinear, animations: {
+                self.wrongLabel.frame.origin.y = self.wrongLabel.frame.origin.y + 2
+                self.textField.layer.borderColor = UIColor(named: "errorColor")?.cgColor
+                UILabel.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5) {
+                    self
+                        .wrongLabel.alpha = 1
+                    self.textField.layer.borderWidth = 2
+                }
+            }, completion: { _ in
+                UILabel.animateKeyframes(withDuration: 0.5, delay: 2.0, options: .calculationModeLinear, animations: {
+                    self.wrongLabel.frame.origin.y = self.wrongLabel.frame.origin.y - 2
+                    self.textField.layer.borderColor = UIColor(named: "textFieldBorderColor")?.cgColor
+                    UILabel.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1) {
+                        self.wrongLabel.alpha = 0
+                        self.textField.layer.borderWidth = 1.0
+                    }
+                    
+                }, completion: { _ in
+                    self.wrongLabel.frame.origin.y = self.wrongLabel.frame.origin.y + 2
+                })
+            })
+        }
+    }
+    
     func setTypeKeybord(keyboardType: UIKeyboardType?) {
         if let keyboardType = keyboardType {
             textField.keyboardType = keyboardType
             if keyboardType == UIKeyboardType.phonePad {
                 let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 300, height: 44))
                 
-                let closeButton = UIBarButtonItem(title: "Закрыть", style: .plain, target: nil, action: #selector(cancelPhonePad))
+                let closeButton = UIBarButtonItem(title: NSLocalizedString("Close", comment: ""), style: .plain, target: nil, action: #selector(close))
                 
                 toolbar.setItems([closeButton], animated: false)
                 
                 textField.inputAccessoryView = toolbar
             }
         }
-    }
-    
-    func addDatePicker(isDate: Bool?) {
-        if let isDate = isDate {
-            if isDate {
-                
-                picker.datePickerMode = .date
-                picker.preferredDatePickerStyle = .wheels
-                
-                let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 300, height: 44))
-                
-                let doneButton = UIBarButtonItem(title: "Готово", style: .plain, target: nil, action: #selector(doneDatePicker))
-                let cancelButton = UIBarButtonItem(title: "Отмена", style: .plain, target: nil, action: #selector(cancelDatePicker))
-                
-                
-                toolbar.setItems([cancelButton, doneButton], animated: false)
-                
-                textField.inputAccessoryView = toolbar
-                textField.inputView = picker
-            }
+        
+        if type == .date {
+            setDatePicker()
         }
     }
     
@@ -121,18 +226,33 @@ class CustomTextField: UIView {
         textField.text = result
         
         if result.isValid(validType: validType){
-            wrongLabel.text = ""
-            textField.layer.borderColor = UIColor(named: "ElGreen")?.cgColor
-            textField.layer.borderWidth = 1.5
-            titleLabel.textColor = UIColor(named: "ElGreen")
+            if animationWrongLabel {
+                animationWrongLabel = false
+                haveError = false
+                UIView.animateKeyframes(withDuration: 0.5, delay: 0.0, options: .calculationModeLinear, animations: {
+                    self.wrongLabel.frame.origin.y = self.wrongLabel.frame.origin.y - 2
+                    self.textField.layer.borderColor = UIColor(named: "successColor")?.cgColor
+                    UILabel.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5) {
+                        self.wrongLabel.alpha = 0
+                        self.textField.layer.borderWidth = 2
+                    }
+                }, completion: nil )
+            }
         } else {
-            wrongLabel.text = wrongMessage
-            textField.layer.borderColor = UIColor(named: "Red")?.cgColor
-            textField.layer.borderWidth = 1.5
-            titleLabel.textColor = UIColor(named: "Red")
+            if !animationWrongLabel {
+                animationWrongLabel = true
+                haveError = true
+                UIView.animateKeyframes(withDuration: 0.5, delay: 0.0, options: .calculationModeLinear, animations: {
+                    self.wrongLabel.frame.origin.y = self.wrongLabel.frame.origin.y + 2
+                    self.textField.layer.borderColor = UIColor(named: "errorColor")?.cgColor
+                    UILabel.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5) {
+                        self.wrongLabel.alpha = 1
+                        self.textField.layer.borderWidth = 2
+                    }
+                }, completion: nil )
+            }
         }
     }
-    
     
     private func setPhoneNumberMask(textField: UITextField, mask: String, string: String, range: NSRange) -> String {
         let text = textField.text ?? ""
@@ -153,11 +273,20 @@ class CustomTextField: UIView {
         return result
     }
     
-    @objc func cancelPhonePad() {
-        textField.endEditing(true)
+    func setDatePicker() {
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 300, height: 44))
+        
+        let doneButton = UIBarButtonItem(title: NSLocalizedString("Done", comment: ""), style: .plain, target: nil, action: #selector(doneDatePicker))
+        let closeButton = UIBarButtonItem(title: NSLocalizedString("Close", comment: ""), style: .plain, target: nil, action: #selector(close))
+        
+        
+        toolbar.setItems([closeButton, doneButton], animated: false)
+        
+        textField.inputAccessoryView = toolbar
+        textField.inputView = datePicker
     }
     
-    @objc func cancelDatePicker() {
+    @objc func close() {
         textField.endEditing(true)
     }
     
@@ -165,100 +294,49 @@ class CustomTextField: UIView {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy"
-        textField.text = formatter.string(from: picker.date)
+        textField.text = formatter.string(from: datePicker.date)
         
         textField.endEditing(true)
-    }
-    
-    
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.layer.borderColor = UIColor(named: "ElGreen")?.cgColor
-        textField.layer.borderWidth = 1.5
-        titleLabel.textColor = UIColor(named: "ElGreen")
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.layer.borderColor = UIColor(named: "BorderColorForTextField")?.cgColor
-        textField.layer.borderWidth = 1.0
-        titleLabel.textColor = .black
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.endEditing(true)
-        return true
-    }
-    
-    
-    private func configure() {
-        setupDelegate()
-        
-        addSubview(textField)
-        addSubview(titleLabel)
-        addSubview(wrongLabel)
-        
-        
-        
-        NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            titleLabel.topAnchor.constraint(equalTo: topAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            textField.leadingAnchor.constraint(equalTo: leadingAnchor),
-            textField.bottomAnchor.constraint(equalTo: bottomAnchor),
-            textField.trailingAnchor.constraint(equalTo: trailingAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: textField.topAnchor, constant: -5),
-            
-            wrongLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            wrongLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            wrongLabel.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 1.5)
-        ])
-    }
-    
-    private class TextField: UITextField {
-        override func editingRect(forBounds bounds: CGRect) -> CGRect {
-            return bounds.insetBy(dx: 10, dy: 0)
-        }
-        
-        override func textRect(forBounds bounds: CGRect) -> CGRect {
-            return bounds.insetBy(dx: 10, dy: 0)
-        }
     }
     
 }
 
+extension UITextField {
+    func shakeAnimation() {
+            let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+            animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+            animation.duration = 0.5
+            animation.values = [-15.0, 15.0, -15.0, 15.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
+            layer.add(animation, forKey: "shake")
+        }
+}
+
 extension CustomTextField: UITextFieldDelegate {
-    
-    func setupDelegate() {
-        textField.delegate = self
-    }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        switch typeTextField {
+        switch type {
         case .phone:
             textField.text = setPhoneNumberMask(textField: textField, mask: "+X (XXX) XXX-XX-XX", string: string, range: range)
         case .date:
             textField.text = setPhoneNumberMask(textField: textField, mask: "XX.XX.XXXX", string: string, range: range)
         case .name:
-            setTextField(textField: textField,
-                         validType: .name,
-                         wrongMessage: wrongMessage ?? "",
-                         string: string,
-                         range: range)
+            setTextField(textField: textField, validType: .name, wrongMessage: wrongMessage ?? "", string: string, range: range)
         case .email:
-            setTextField(textField: textField,
-                         validType: .email,
-                         wrongMessage: wrongMessage ?? "",
-                         string: string,
-                         range: range)
+            setTextField(textField: textField, validType: .email, wrongMessage: wrongMessage ?? "", string: string, range: range)
         case .password:
-            setTextField(textField: textField,
-                         validType: .password,
-                         wrongMessage: wrongMessage ?? "",
-                         string: string,
-                         range: range)
+            setTextField(textField: textField, validType: .password, wrongMessage: wrongMessage ?? "", string: string, range: range)
         default:
-            textField.text = textField.text ?? ""
+            let text = (textField.text ?? "") + string
+            let result: String
+            if range.length == 1 {
+                let end = text.index(text.startIndex, offsetBy: text.count - 1)
+                result = String(text[text.startIndex..<end])
+            } else {
+                result = text
+            }
+            
+            textField.text = result
         }
         return false
     }

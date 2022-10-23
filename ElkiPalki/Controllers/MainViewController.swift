@@ -14,9 +14,9 @@ class MainViewController: UITabBarController {
         vc2.tabBarItem.image = UIImage(systemName: "house")
         vc3.tabBarItem.image = UIImage(systemName: "info.circle")
         
-        vc1.tabBarItem.title = "Личный Кабинет"
-        vc2.tabBarItem.title = "Проекты"
-        vc3.tabBarItem.title = "О нас"
+        vc1.tabBarItem.title = NSLocalizedString("Personal account", comment: "")
+        vc2.tabBarItem.title = NSLocalizedString("Projects", comment: "")
+        vc3.tabBarItem.title = NSLocalizedString("About us", comment: "")
         
         tabBar.tintColor = UIColor(named: "ElGreen")
         

@@ -3,8 +3,28 @@
 "Sing in" = "Sing in";
 "Sing up" = "Sing up";
 "Continue without registration" = "Continue without registration";
+
+//MARK: - AccountViewController
 "Profile" = "Profile";
 "Active projects" = "Active projects";
 "My applications" = "My applications";
 "Settings" = "Settings";
 "Logout" = "Logout";
+
+//MARK: - tabBarItem
+"Personal account" = "Personal account";
+"Projects" = "Projects";
+"About us" = "About us";
+
+//MARK: - InfoAboutObjectView
+"Size" = "Size";
+"meters" = "meters";
+"Square" = "Square";
+"m2" = "m2";
+"Rooms" = "Rooms";
+"pc." = "pc.";
+"Floors" = "Floors";
+
+//MARK: - CustomTextField
+"Close" = "Close";
+"Done" = "Done";

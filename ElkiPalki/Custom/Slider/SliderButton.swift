@@ -20,7 +20,7 @@ class SliderButton: UIButton {
         label.textColor = .black
         label.textAlignment = .center
         label.numberOfLines = 2
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont(name: "Montserrat-Medium", size: 9)
         return label
     }()
     
@@ -54,13 +54,6 @@ class SliderButton: UIButton {
         label.text = self.viewModel?.label
         image.image = UIImage(named: (self.viewModel?.normalImageName)!)
     }
-    
-//    func changeColor() {
-//        image.image = UIImage(named: (self.viewModel?.activeImageName)!)
-//        print("tap")
-//        self.setNeedsDisplay()
-//    }
-    
     
     override func layoutSubviews() {
         image.frame = CGRect(x: self.frame.width/2-25, y: 10, width: 50, height: 50).integral

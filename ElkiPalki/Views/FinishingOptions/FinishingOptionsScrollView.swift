@@ -54,7 +54,7 @@ class FinishingOptionsScrollView: UIScrollView, UIScrollViewDelegate{
                 let label = UILabel()
                 label.text = nameOption
                 label.numberOfLines = 1
-                label.font = UIFont.boldSystemFont(ofSize: 24)
+                label.font = UIFont(name: "Montserrat-Medium", size: 18)
                 label.tintColor = .black
                 label.textAlignment = .center
                 label.translatesAutoresizingMaskIntoConstraints = false

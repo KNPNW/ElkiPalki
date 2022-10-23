@@ -23,7 +23,7 @@ class ObjectViewController: UIViewController {
     private lazy var objectNameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = UIFont.boldSystemFont(ofSize: 24)
+        label.font = UIFont(name: "Montserrat-Medium", size: 22)
         label.tintColor = .black
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -54,8 +54,8 @@ class ObjectViewController: UIViewController {
         return view
     }()
     
-    private lazy var infoAboutObjectView: MainInfoAboutObject = {
-        let view = MainInfoAboutObject(addShadow: true)
+    private lazy var infoAboutObjectView: InfoAboutObjectView = {
+        let view = InfoAboutObjectView(addShadow: true)
         return view
     }()
     
@@ -68,6 +68,7 @@ class ObjectViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Получить консультацию", for: .normal)
         button.titleLabel?.textAlignment = .center
+        button.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 17)
         button.backgroundColor = UIColor(named: "ElGreen")
         button.clipsToBounds = true
         button.layer.cornerRadius = 10
@@ -96,6 +97,7 @@ class ObjectViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Подробнее на сайте", for: .normal)
         button.titleLabel?.textAlignment = .center
+        button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 17)
         button.backgroundColor = UIColor(named: "ElGreen")
         button.clipsToBounds = true
         button.layer.cornerRadius = 10

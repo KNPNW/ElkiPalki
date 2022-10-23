@@ -10,20 +10,19 @@ import UIKit
 
 class RegistrateViewController: UIViewController {
     
-    let registrateLabel : UILabel = {
-        let label = UILabel()
-        label.text = "Регистрация"
-        label.textColor = UIColor(named: "ElGreen")
-        label.font = UIFont.boldSystemFont(ofSize: 40.0)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    let lineImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "line")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
     
-    let warnLabel : UILabel = {
+    let registrateLabel : UILabel = {
         let label = UILabel()
-        label.text = ""
-        label.textColor = UIColor(named: "Red")
-        label.font = UIFont.systemFont(ofSize: 20.0)
+        label.font = UIFont (name: "Montserrat-Bold", size: 40)
+        label.text = "Регистрация"
+        label.textColor = UIColor(named: "ElGreen")
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -48,6 +47,7 @@ class RegistrateViewController: UIViewController {
         button.layer.cornerRadius = 10
         button.setTitle(NSLocalizedString("Sing up", comment: ""), for: .normal)
         button.titleLabel?.textAlignment = .center
+        button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 17)
         button.setTitleColor(UIColor(named: "White"), for: UIControl.State.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -63,31 +63,43 @@ class RegistrateViewController: UIViewController {
     }()
     
     override func viewDidLoad() {
-        view.backgroundColor = UIColor(named: "White")
-        warnLabel.alpha = 0
-
-        registrateButton.addTarget(self, action: #selector(registrateButtonTapped), for: .touchUpInside)
+        super.viewDidLoad()
+        view.backgroundColor = UIColor(named: "mainBackGroungColor")
         
+        view.addSubview(lineImageView)
+        view.addSubview(registrateLabel)
         view.addSubview(stackView)
+    
         stackView.addArrangedSubview(logintTextField)
         stackView.addArrangedSubview(passwordTextField)
         stackView.addArrangedSubview(registrateButton)
         
-        setConstraints()
-    }
-    
-    func displayWarningLabel(withText text: String) {
-        DispatchQueue.main.async {
-            self.warnLabel.text = text
+        registrateButton.addTarget(self, action: #selector(registrateButtonTapped), for: .touchUpInside)
         
-            UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [.curveEaseInOut], animations: { [weak self] in self?.warnLabel.alpha = 1 }, completion: {[weak self] complete in self?.warnLabel.alpha = 0})
+        lineImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 15).isActive = true
+        lineImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        lineImageView.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        lineImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        registrateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        registrateLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 75).isActive = true
+    
+        stackView.topAnchor.constraint(equalTo: registrateLabel.bottomAnchor, constant: 50).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        
+        for subView in stackView.arrangedSubviews {
+            subView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
+            subView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+            subView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         }
     }
     
     
     @objc func registrateButtonTapped() {
         guard let email = logintTextField.textField.text, let password = passwordTextField.textField.text, email != "", password != "" else {
-            displayWarningLabel(withText: "Введена неверная информация")
+            logintTextField.showError()
+            passwordTextField.showError()
             return
         }
         
@@ -107,50 +119,9 @@ class RegistrateViewController: UIViewController {
                     self.present(mainView, animated: true, completion: nil)
                     return
                 }
-            case .failure (let .apiError(error)):
-                self.displayWarningLabel(withText: "\(error)")
-            case .failure(.responseProblem):
-                self.displayWarningLabel(withText: "\("Упс, что-то пошло не так(")")
-            case .failure(.decodingProblem):
-                self.displayWarningLabel(withText: "\("Упс, что-то пошло не так(")")
-            case .failure(.encodingProblem):
-                self.displayWarningLabel(withText: "\("Упс, что-то пошло не так(")")
-            default:
-                self.displayWarningLabel(withText: "\("Упс, что-то пошло не так(")")
+            case .failure (let error):
+                print(error)
             }
         })
-    }
-}
-
-
-extension RegistrateViewController {
-    
-    func setConstraints () {
-        
-        view.addSubview(registrateLabel)
-        NSLayoutConstraint.activate([
-            registrateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            registrateLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 75)
-        ])
-        
-        view.addSubview(warnLabel)
-        NSLayoutConstraint.activate([
-            warnLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            warnLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 125)
-        ])
-        
-        NSLayoutConstraint.activate([
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.topAnchor.constraint(equalTo: registrateLabel.bottomAnchor, constant: 50),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
-        ])
-        
-        for view in stackView.arrangedSubviews {
-            view.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
-            view.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
-            view.centerXAnchor.constraint(equalTo: stackView.centerXAnchor).isActive = true
-            view.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        }
     }
 }

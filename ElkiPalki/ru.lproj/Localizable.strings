@@ -3,8 +3,28 @@
 "Sing in" = "Войти";
 "Sing up" = "Зарегистрироваться";
 "Continue without registration" = "Продолжить без регистрации";
+
+//MARK: - AccountViewController
 "Profile" = "Профиль";
 "Active projects" = "Активные проекты";
 "My applications" = "Мои заявки";
 "Settings" = "Настройки";
 "Logout" = "Выйти";
+
+//MARK: - tabBarItem
+"Personal account" = "Личный кабинет";
+"Projects" = "Проекты";
+"About us" = "О нас";
+
+//MARK: - InfoAboutObjectView
+"Size" = "Размер";
+"meters" = "метров";
+"Square" = "Площадь";
+"m2" = "м2";
+"Rooms" = "Помещений";
+"pc." = "шт.";
+"Floors" = "Этажность";
+
+//MARK: - CustomTextField
+"Close" = "Закрыть";
+"Done" = "Готово";

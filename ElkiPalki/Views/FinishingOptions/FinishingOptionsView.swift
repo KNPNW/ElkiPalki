@@ -12,7 +12,7 @@ class FinishingOptionsView: UIView {
     let sectionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont(name: "Montserrat-Bold", size: 19)
         label.tintColor = .black
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false

@@ -5,10 +5,11 @@ extension String {
         case name
         case email
         case password
+        
     }
     
     enum Regex: String {
-        case name = "[а-яА-Я]{1,}"
+        case name = "[а-яА-Яa-zA-Z]{1,}"
         case email = "[a-zA-Z0-9._]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,}"
         case password = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}"
     }

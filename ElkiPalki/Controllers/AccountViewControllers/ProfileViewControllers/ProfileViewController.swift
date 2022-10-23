@@ -23,7 +23,7 @@ class ProfileViewController: UIViewController {
     let saveButton : UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(named: "ElGreen")
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 10
         button.setTitle("Сохранить", for: .normal)
         button.titleLabel?.textAlignment = .center
         button.setTitleColor(UIColor(named: "White"), for: UIControl.State.normal)
@@ -69,6 +69,12 @@ class ProfileViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
+    
+    private lazy var test: CustomTextField = {
+        let textField = CustomTextField(title: "Test", wrongMessage: "Имя может содержать только символы русского алфавита")
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +98,7 @@ class ProfileViewController: UIViewController {
         stackView.addArrangedSubview(lastName)
         stackView.addArrangedSubview(dateOfBirth)
         stackView.addArrangedSubview(phone)
+        stackView.addArrangedSubview(test)
         
         
         view.addSubview(saveButton)
@@ -107,7 +114,7 @@ class ProfileViewController: UIViewController {
         saveButton.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 20).isActive = true
         saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        saveButton.bottomAnchor.constraint(equalTo: saveG.bottomAnchor, constant: -20).isActive = true
+        saveButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         setConstraint()

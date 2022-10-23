@@ -2,45 +2,41 @@ import UIKit
 
 class AuthorizationViewController: UIViewController {
     
-    let authorizationLabel : UILabel = {
-        let label = UILabel()
-        label.text = NSLocalizedString("Login", comment: "")
-        label.textColor = UIColor(named: "White")
-        label.font = UIFont.boldSystemFont(ofSize: 40.0)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    let lineImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "line")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
     
-    let warnLabel : UILabel = {
+    let authorizationLabel : UILabel = {
         let label = UILabel()
-        label.text = ""
-        label.textColor = UIColor(named: "Red")
-        label.font = UIFont.systemFont(ofSize: 20.0)
+        label.font = UIFont (name: "Montserrat-Bold", size: 40)
+        label.text = NSLocalizedString("Login", comment: "")
+        label.textColor = UIColor(named: "ElGreen")
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let logintTextField : CustomTextField = {
-        let textField = CustomTextField(title: "", placeholder: "Email", keyboardType: .emailAddress, typeTextField: .email , wrongMessage: "Неверно указан email")
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        
+        let textField = CustomTextField(placeholder: "Email", keyboardType: .emailAddress, typeTextField: .email , wrongMessage: "Неверно указан email")
         return textField
     }()
     
     let passwordTextField : CustomTextField = {
-        let textField = CustomTextField(title: "", placeholder: "Пароль", typeTextField: .password , wrongMessage: "Не проходит валидация")
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        
+        let textField = CustomTextField(placeholder: "Пароль", typeTextField: .password , wrongMessage: "Не проходит валидация")
         return textField
     }()
     
     let enterButton : UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor(named: "White")
+        button.backgroundColor = UIColor(named: "ElGreen")
         button.layer.cornerRadius = 10
         button.setTitle(NSLocalizedString("Sing in", comment: ""), for: .normal)
         button.titleLabel?.textAlignment = .center
-        button.setTitleColor(UIColor(named: "ElGreen"), for: UIControl.State.normal)
+        button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 17)
+        button.setTitleColor(UIColor(named: "White"), for: UIControl.State.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -58,29 +54,41 @@ class AuthorizationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "ElGreen")
-        warnLabel.alpha = 0
-
-        enterButton.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
+        view.backgroundColor = UIColor(named: "mainBackGroungColor")
         
+        view.addSubview(lineImageView)
+        view.addSubview(authorizationLabel)
         view.addSubview(stackView)
+    
         stackView.addArrangedSubview(logintTextField)
         stackView.addArrangedSubview(passwordTextField)
         stackView.addArrangedSubview(enterButton)
-        setConstraints()
-    }
-    
-    func displayWarningLabel(withText text: String) {
-        DispatchQueue.main.async {
-            self.warnLabel.text = text
         
-            UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [.curveEaseInOut], animations: { [weak self] in self?.warnLabel.alpha = 1 }, completion: {[weak self] complete in self?.warnLabel.alpha = 0})
+        enterButton.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
+        
+        lineImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 15).isActive = true
+        lineImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        lineImageView.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        lineImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        authorizationLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        authorizationLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 75).isActive = true
+    
+        stackView.topAnchor.constraint(equalTo: authorizationLabel.bottomAnchor, constant: 50).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        
+        for subView in stackView.arrangedSubviews {
+            subView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
+            subView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+            subView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         }
     }
     
+    
     @objc func enterButtonTapped() {
         guard let email = logintTextField.textField.text, let password = passwordTextField.textField.text, email != "", password != "" else {
-            displayWarningLabel(withText: "Введена неверная информация")
+            passwordTextField.showError()
             return
         }
         
@@ -99,51 +107,10 @@ class AuthorizationViewController: UIViewController {
                     self.present(mainView, animated: true, completion: nil)
                     return
                 }
-            case .failure (let .apiError(error)):
-                self.displayWarningLabel(withText: "\(error)")
-            case .failure(.responseProblem):
-                self.displayWarningLabel(withText: "\("Упс, что-то пошло не так(")")
-            case .failure(.decodingProblem):
-                self.displayWarningLabel(withText: "\("Упс, что-то пошло не так(")")
-            case .failure(.encodingProblem):
-                self.displayWarningLabel(withText: "\("Упс, что-то пошло не так(")")
-            default:
-                self.displayWarningLabel(withText: "\("Упс, что-то пошло не так(")")
+            case .failure(let error):
+                print(error)
                 
             }
         })
-    }
-}
-
-
-extension AuthorizationViewController  {
-    
-    func setConstraints () {
-        
-        view.addSubview(authorizationLabel)
-        NSLayoutConstraint.activate([
-            authorizationLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            authorizationLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 75)
-        ])
-        
-        view.addSubview(warnLabel)
-        NSLayoutConstraint.activate([
-            warnLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            warnLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 125)
-        ])
-        
-        NSLayoutConstraint.activate([
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.topAnchor.constraint(equalTo: authorizationLabel.bottomAnchor, constant: 50),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
-        ])
-        
-        for view in stackView.arrangedSubviews {
-            view.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
-            view.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
-            view.centerXAnchor.constraint(equalTo: stackView.centerXAnchor).isActive = true
-            view.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        }
     }
 }

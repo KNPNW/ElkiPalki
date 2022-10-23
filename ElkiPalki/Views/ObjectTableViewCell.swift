@@ -14,7 +14,7 @@ class ObjectTableViewCell: UITableViewCell {
     
     private lazy var cardView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "White")
         view.clipsToBounds = true
         view.layer.cornerRadius = 10
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -24,7 +24,7 @@ class ObjectTableViewCell: UITableViewCell {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = UIFont.boldSystemFont(ofSize: 21)
+        label.font = UIFont(name: "Montserrat-Medium", size: 20)
         label.tintColor = .black
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -38,8 +38,8 @@ class ObjectTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    private lazy var infoAboutIbject: MainInfoAboutObject = {
-        let view = MainInfoAboutObject()
+    private lazy var infoAboutIbject: InfoAboutObjectView = {
+        let view = InfoAboutObjectView()
         return view
     }()
     
@@ -51,6 +51,7 @@ class ObjectTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        contentView.backgroundColor = UIColor(named: "White")
         contentView.addSubview(shadowView)
         shadowView.addSubview(cardView)
         
@@ -69,11 +70,7 @@ class ObjectTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        shadowView.layer.masksToBounds = false
-        shadowView.layer.shadowColor = UIColor.black.cgColor
-        shadowView.layer.shadowOpacity = 0.5
-        shadowView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        shadowView.layer.shadowRadius = 10
+        shadowView.dropShadow()
         
         shadowView.layer.shadowPath = UIBezierPath(roundedRect: shadowView.bounds, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: 10, height: 10)).cgPath
         
@@ -151,24 +148,15 @@ class ObjectTableViewCell: UITableViewCell {
 }
 
 extension UIView {
-    func dropShadow(scale: Bool = true) {
+    func dropShadow(scale: Bool = true, shadowColor: UIColor = UIColor(named: "ShadowColor")!) {
         
         layer.masksToBounds = false
-        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowColor = shadowColor.cgColor
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: 0, height: 0)
         layer.shadowRadius = 10
         
         layer.shadowPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: 10, height: 10)).cgPath
-        
-//        layer.masksToBounds = false
-//        layer.shadowColor = UIColor.black.cgColor
-//        layer.shadowOpacity = 0.5
-//        layer.shadowOffset = CGSize(width: -1, height: 1)
-//        layer.shadowRadius = 1
-//
-//        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
-//        layer.shouldRasterize = true
-//        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+
     }
 }

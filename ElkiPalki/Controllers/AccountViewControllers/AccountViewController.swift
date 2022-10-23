@@ -51,7 +51,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     private lazy var backItem: UIBarButtonItem = {
         let button = UIBarButtonItem()
-        button.title = "Личный кабинет"
+        button.title = NSLocalizedString("Personal account", comment: "")
         return button
     }()
     
@@ -78,26 +78,26 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func configure(){
         models.append(Section(title: "General", options: [
-            .staticCell(model: AccountOptions(title: "Профиль", icon: UIImage(systemName: "person"), iconBackGroundColor: UIColor(named:
+            .staticCell(model: AccountOptions(title: NSLocalizedString("Profile", comment: ""), icon: UIImage(systemName: "person"), iconBackGroundColor: UIColor(named:
                 "ElGreen")){
                 self.navigationController?.pushViewController(ProfileViewController(), animated: true)
                 return
             }),
-            .staticCell(model: AccountOptions(title: "Активные проекты", icon: UIImage(systemName: "house"), iconBackGroundColor: UIColor(named: "ElGreen")){
+            .staticCell(model: AccountOptions(title: NSLocalizedString("Active projects", comment: ""), icon: UIImage(systemName: "house"), iconBackGroundColor: UIColor(named: "ElGreen")){
                 self.navigationController?.pushViewController(ActiveProjectsViewController(), animated: true)
                 return
             }),
-            .staticCell(model: AccountOptions(title: "Мои заявки", icon: UIImage(systemName: "doc.text"), iconBackGroundColor: UIColor(named: "ElGreen")){
+            .staticCell(model: AccountOptions(title: NSLocalizedString("My applications", comment: ""), icon: UIImage(systemName: "doc.text"), iconBackGroundColor: UIColor(named: "ElGreen")){
                 self.navigationController?.pushViewController(ApplicationsViewController(), animated: true)
                 return
             }),
-            .staticCell(model: AccountOptions(title: "Настройки", icon: UIImage(systemName: "gearshape"), iconBackGroundColor: UIColor(named: "ElGreen")){
+            .staticCell(model: AccountOptions(title: NSLocalizedString("Settings", comment: ""), icon: UIImage(systemName: "gearshape"), iconBackGroundColor: UIColor(named: "ElGreen")){
                 self.navigationController?.pushViewController(SettingsViewController(), animated: true)
                 return
             })
             ]))
         models.append(Section(title: "Logout", options: [
-            .logoutCell(model: AccountLogoutOptions(title: "Выйти", color: UIColor(named: "Red"), handler: {
+            .logoutCell(model: AccountLogoutOptions(title: NSLocalizedString("Logout", comment: ""), color: UIColor(named: "Red"), handler: {
                 UserDefaults.standard.removeObject(forKey: "userRefreshToken")
                 UserDefaults.standard.removeObject(forKey: "userEmail")
                 

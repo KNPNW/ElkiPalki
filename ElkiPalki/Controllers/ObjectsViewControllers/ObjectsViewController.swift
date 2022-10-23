@@ -16,7 +16,7 @@ class ObjectsViewController: UIViewController, UITableViewDelegate, UITableViewD
     private lazy var tableView : UITableView = {
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), style: .grouped)
         tableView.register(ObjectTableViewCell.self, forCellReuseIdentifier: ObjectTableViewCell.identifier)
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = UIColor(named: "White")
         return tableView
     }()
     

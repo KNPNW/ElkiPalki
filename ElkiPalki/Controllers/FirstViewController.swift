@@ -24,6 +24,7 @@ class FirstViewController: UIViewController {
         button.layer.cornerRadius = 10
         button.setTitle(NSLocalizedString("Sing in", comment: ""), for: .normal)
         button.titleLabel?.textAlignment = .center
+        button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 17)
         button.setTitleColor(UIColor(named: "White"), for: UIControl.State.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -35,6 +36,7 @@ class FirstViewController: UIViewController {
         button.layer.cornerRadius = 10
         button.setTitle(NSLocalizedString("Sing up", comment: ""), for: .normal)
         button.titleLabel?.textAlignment = .center
+        button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 17)
         button.setTitleColor(UIColor(named: "White"), for: UIControl.State.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -45,6 +47,7 @@ class FirstViewController: UIViewController {
         button.backgroundColor = UIColor(named: "White")
         button.layer.cornerRadius = 10
         button.setTitle(NSLocalizedString("Continue without registration", comment: ""), for: .normal)
+        button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 17)
         button.setTitleColor(UIColor(named: "ElGreen"), for: UIControl.State.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

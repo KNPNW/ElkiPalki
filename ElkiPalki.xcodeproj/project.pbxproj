@@ -29,7 +29,7 @@
 		257F7BDF281DAEF700BCDB11 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BDE281DAEF700BCDB11 /* AccountViewController.swift */; };
 		257F7BE1281DAF0500BCDB11 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BE0281DAF0500BCDB11 /* AboutViewController.swift */; };
 		257F7BE4281DCCBE00BCDB11 /* HouseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BE3281DCCBE00BCDB11 /* HouseTableViewCell.swift */; };
-		2584E44728EAEEA7009F0330 /* MainInfoAboutObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2584E44628EAEEA7009F0330 /* MainInfoAboutObjectView.swift */; };
+		2584E44728EAEEA7009F0330 /* InfoAboutObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2584E44628EAEEA7009F0330 /* InfoAboutObjectView.swift */; };
 		25B0A48D289D974400DCE5CA /* RegistrateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B0A48C289D974400DCE5CA /* RegistrateViewController.swift */; };
 		25B9DEB328D8A88B00819045 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B9DEB228D8A88B00819045 /* StringExtension.swift */; };
 		25D160D32816F0FE00B1AE47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D160D22816F0FE00B1AE47 /* AppDelegate.swift */; };
@@ -39,6 +39,8 @@
 		25D160DF2816F10000B1AE47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25D160DD2816F10000B1AE47 /* LaunchScreen.storyboard */; };
 		25E7B31428F88F8200A4312B /* TableViewCellAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E7B31328F88F8200A4312B /* TableViewCellAnimation.swift */; };
 		25E7B31828F8C42900A4312B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25E7B31628F8C42800A4312B /* Localizable.strings */; };
+		25E7B32628FA121600A4312B /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25E7B32528FA121600A4312B /* Montserrat-Medium.ttf */; };
+		25E7B32828FA142700A4312B /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25E7B32728FA142700A4312B /* Montserrat-Bold.ttf */; };
 		25FB403428CA2736007FD823 /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB403328CA2736007FD823 /* AccountTableViewCell.swift */; };
 		25FB403728CA467C007FD823 /* LogoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB403628CA467C007FD823 /* LogoutTableViewCell.swift */; };
 		25FB403B28CB59A5007FD823 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB403A28CB59A5007FD823 /* UserSettings.swift */; };
@@ -46,7 +48,7 @@
 		25FB404328CCB69C007FD823 /* ActiveProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB404228CCB69C007FD823 /* ActiveProjectsViewController.swift */; };
 		25FB404528CCB6B5007FD823 /* ApplicationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB404428CCB6B5007FD823 /* ApplicationsViewController.swift */; };
 		25FB404728CCB6DA007FD823 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB404628CCB6DA007FD823 /* SettingsViewController.swift */; };
-		25FB404B28CE49E8007FD823 /* CustomtextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB404A28CE49E8007FD823 /* CustomtextField.swift */; };
+		25FB404B28CE49E8007FD823 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB404A28CE49E8007FD823 /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +77,7 @@
 		257F7BDE281DAEF700BCDB11 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		257F7BE0281DAF0500BCDB11 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		257F7BE3281DCCBE00BCDB11 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
-		2584E44628EAEEA7009F0330 /* MainInfoAboutObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoAboutObjectView.swift; sourceTree = "<group>"; };
+		2584E44628EAEEA7009F0330 /* InfoAboutObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAboutObjectView.swift; sourceTree = "<group>"; };
 		25B0A48C289D974400DCE5CA /* RegistrateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrateViewController.swift; sourceTree = "<group>"; };
 		25B9DEB228D8A88B00819045 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		25D160CF2816F0FE00B1AE47 /* ElkiPalki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElkiPalki.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +91,8 @@
 		25E7B31528F8C3A900A4312B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		25E7B31728F8C42900A4312B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ElkiPalki/ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		25E7B31928F8C45500A4312B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = ElkiPalki/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		25E7B32528FA121600A4312B /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		25E7B32728FA142700A4312B /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		25FB403328CA2736007FD823 /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
 		25FB403628CA467C007FD823 /* LogoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutTableViewCell.swift; sourceTree = "<group>"; };
 		25FB403A28CB59A5007FD823 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
@@ -96,7 +100,7 @@
 		25FB404228CCB69C007FD823 /* ActiveProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveProjectsViewController.swift; sourceTree = "<group>"; };
 		25FB404428CCB6B5007FD823 /* ApplicationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationsViewController.swift; sourceTree = "<group>"; };
 		25FB404628CCB6DA007FD823 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		25FB404A28CE49E8007FD823 /* CustomtextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomtextField.swift; sourceTree = "<group>"; };
+		25FB404A28CE49E8007FD823 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,8 +157,8 @@
 		255D97F728D9E486002CBB38 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				255D97F928D9E4A4002CBB38 /* Mariupol-Regular.ttf */,
 				255D97FA28D9E4A4002CBB38 /* Mariupol-Medium.ttf */,
+				255D97F928D9E4A4002CBB38 /* Mariupol-Regular.ttf */,
 				255D97F828D9E4A4002CBB38 /* Mariupol-Bold.ttf */,
 			);
 			path = Fonts;
@@ -261,16 +265,9 @@
 				25FB403628CA467C007FD823 /* LogoutTableViewCell.swift */,
 				255D97FF28DA5AAE002CBB38 /* ObjectTableViewCell.swift */,
 				250C721D28E4972300B38AF7 /* PilesView.swift */,
-				2584E44628EAEEA7009F0330 /* MainInfoAboutObjectView.swift */,
+				2584E44628EAEEA7009F0330 /* InfoAboutObjectView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		25B0A468289D513900DCE5CA /* SupportingFiles */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		25D160C62816F0FE00B1AE47 = {
@@ -295,13 +292,14 @@
 			children = (
 				25FB404828CE499A007FD823 /* Custom */,
 				25554D0A28C2929D00E8AFDA /* Api */,
-				25B0A468289D513900DCE5CA /* SupportingFiles */,
 				251197D22874B79B003A7F65 /* Animation */,
 				257F7BE2281DCC9B00BCDB11 /* Views */,
 				257F7BDB281DAE7F00BCDB11 /* Controllers */,
 				25D160D22816F0FE00B1AE47 /* AppDelegate.swift */,
 				25D160D42816F0FE00B1AE47 /* SceneDelegate.swift */,
 				25D160DB2816F10000B1AE47 /* Assets.xcassets */,
+				25E7B32528FA121600A4312B /* Montserrat-Medium.ttf */,
+				25E7B32728FA142700A4312B /* Montserrat-Bold.ttf */,
 				25D160DD2816F10000B1AE47 /* LaunchScreen.storyboard */,
 				25D160E02816F10000B1AE47 /* Info.plist */,
 				25FB403A28CB59A5007FD823 /* UserSettings.swift */,
@@ -324,7 +322,7 @@
 		25FB404928CE49B9007FD823 /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
-				25FB404A28CE49E8007FD823 /* CustomtextField.swift */,
+				25FB404A28CE49E8007FD823 /* CustomTextField.swift */,
 			);
 			path = TextFields;
 			sourceTree = "<group>";
@@ -393,6 +391,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				25D160DF2816F10000B1AE47 /* LaunchScreen.storyboard in Resources */,
+				25E7B32628FA121600A4312B /* Montserrat-Medium.ttf in Resources */,
+				25E7B32828FA142700A4312B /* Montserrat-Bold.ttf in Resources */,
 				25E7B31828F8C42900A4312B /* Localizable.strings in Resources */,
 				25D160DC2816F10000B1AE47 /* Assets.xcassets in Resources */,
 				25227B6928E7975D0047B8C5 /* ViewController.xib in Resources */,
@@ -424,7 +424,7 @@
 				25D160D32816F0FE00B1AE47 /* AppDelegate.swift in Sources */,
 				250C722528E5BAEC00B38AF7 /* SliderView.swift in Sources */,
 				255F206A28F73BAD004B8DC2 /* Objects.swift in Sources */,
-				25FB404B28CE49E8007FD823 /* CustomtextField.swift in Sources */,
+				25FB404B28CE49E8007FD823 /* CustomTextField.swift in Sources */,
 				257F7BDF281DAEF700BCDB11 /* AccountViewController.swift in Sources */,
 				25D160D52816F0FE00B1AE47 /* SceneDelegate.swift in Sources */,
 				25FB403D28CB643E007FD823 /* ProfileViewController.swift in Sources */,
@@ -437,7 +437,7 @@
 				25FB403B28CB59A5007FD823 /* UserSettings.swift in Sources */,
 				251D6E5F28D23D73008ED74D /* UserInfoModel.swift in Sources */,
 				25FB403728CA467C007FD823 /* LogoutTableViewCell.swift in Sources */,
-				2584E44728EAEEA7009F0330 /* MainInfoAboutObjectView.swift in Sources */,
+				2584E44728EAEEA7009F0330 /* InfoAboutObjectView.swift in Sources */,
 				25554D0D28C292F200E8AFDA /* UserAuthorization.swift in Sources */,
 				255D980028DA5AAE002CBB38 /* ObjectTableViewCell.swift in Sources */,
 				25554D1128C2994E00E8AFDA /* Tokens.swift in Sources */,

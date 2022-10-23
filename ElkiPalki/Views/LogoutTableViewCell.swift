@@ -27,6 +27,7 @@ class LogoutTableViewCell: UITableViewCell {
     private let label: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
+        label.font = UIFont(name: "Montserrat-Medium", size: 15)
         label.textColor = .white
         return label
     }()

@@ -20,7 +20,7 @@ class PilesView: UIView {
         let label = UILabel()
         label.textColor = UIColor(named: "ElGreen")
         label.numberOfLines = 1
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont(name: "Montserrat-Bold", size: 18)
         label.text = "Свайный фундамент"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -30,7 +30,7 @@ class PilesView: UIView {
         let label = UILabel()
         label.textColor = .black
         label.numberOfLines = 1
-        label.font = UIFont.boldSystemFont(ofSize: 15)
+        label.font = UIFont(name: "Montserrat-Medium", size: 15)
         label.text = "включен в стоимость"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
