@@ -104,7 +104,6 @@ extension FirstViewController  {
             mainLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             mainLogo.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
             mainLogo.heightAnchor.constraint(equalToConstant: 300)
-//            mainLogo.widthAnchor.constraint(equalToConstant: 2)
         ])
         
         view.addSubview(enterButton)

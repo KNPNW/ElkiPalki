@@ -9,6 +9,14 @@ import UIKit
 
 class UnAuthAccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let mainLogo : UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "ElpalLogo")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     let enterButton : UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(named: "ElGreen")
@@ -49,6 +57,7 @@ class UnAuthAccountViewController: UIViewController, UITableViewDelegate, UITabl
         self.navigationItem.title = NSLocalizedString("Personal account", comment: "")
         view.backgroundColor = UIColor(named: "mainBackGroundColor")
         
+        view.addSubview(mainLogo)
         view.addSubview(enterButton)
         view.addSubview(registrateButton)
         view.addSubview(tableView)
@@ -61,7 +70,11 @@ class UnAuthAccountViewController: UIViewController, UITableViewDelegate, UITabl
         
         registrateButton.addTarget(self, action: #selector(registrateButtonTapped), for: .touchUpInside)
         
-        enterButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 175).isActive = true
+        mainLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        mainLogo.topAnchor.constraint(equalTo: view.topAnchor, constant: 175).isActive = true
+        mainLogo.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        
+        enterButton.topAnchor.constraint(equalTo: mainLogo.bottomAnchor, constant: 25).isActive = true
         enterButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         enterButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         enterButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
