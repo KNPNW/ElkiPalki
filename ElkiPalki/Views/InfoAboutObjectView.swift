@@ -29,7 +29,7 @@ class InfoAboutObjectView: UIView {
     private let sizeLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
-        label.font = UIFont(name: "Montserrat-Medium", size: 13)
+        label.font = UIFont(name: "Gilroy-Regular", size: 13)
         label.textColor = UIColor(named: "mainTextColor")
         label.textAlignment = .left
         return label
@@ -45,7 +45,7 @@ class InfoAboutObjectView: UIView {
     private let numberOfFloorsLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
-        label.font = UIFont(name: "Montserrat-Medium", size: 13)
+        label.font = UIFont(name: "Gilroy-Regular", size: 13)
         label.textColor = UIColor(named: "mainTextColor")
         label.textAlignment = .left
         return label
@@ -71,7 +71,7 @@ class InfoAboutObjectView: UIView {
     private let squareLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
-        label.font = UIFont(name: "Montserrat-Medium", size: 13)
+        label.font = UIFont(name: "Gilroy-Regular", size: 13)
         label.textColor = UIColor(named: "mainTextColor")
         label.textAlignment = .left
         return label
@@ -87,7 +87,7 @@ class InfoAboutObjectView: UIView {
     private let numberOfRoomsLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
-        label.font = UIFont(name: "Montserrat-Medium", size: 13)
+        label.font = UIFont(name: "Gilroy-Regular", size: 13)
         label.textColor = UIColor(named: "mainTextColor")
         label.textAlignment = .left
         return label

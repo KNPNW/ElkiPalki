@@ -13,6 +13,10 @@
 		250C722228E4B83400B38AF7 /* SliderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C722128E4B83400B38AF7 /* SliderButton.swift */; };
 		250C722528E5BAEC00B38AF7 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C722428E5BAEC00B38AF7 /* SliderView.swift */; };
 		2511736528E1E62400527977 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2511736428E1E62300527977 /* LoadingView.swift */; };
+		251A141F2909A6220044FD32 /* Gilroy-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 251A141E2909A6220044FD32 /* Gilroy-Light.ttf */; };
+		251A14212909A6C10044FD32 /* Gilroy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 251A14202909A6C10044FD32 /* Gilroy-Regular.ttf */; };
+		251A14232909A7FB0044FD32 /* Gilroy-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 251A14222909A7FB0044FD32 /* Gilroy-Medium.ttf */; };
+		251A14252909BDE30044FD32 /* SettingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251A14242909BDE30044FD32 /* SettingTableView.swift */; };
 		251D6E5F28D23D73008ED74D /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251D6E5E28D23D73008ED74D /* UserInfoModel.swift */; };
 		25227B6928E7975D0047B8C5 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25227B6728E7975D0047B8C5 /* ViewController.xib */; };
 		25554D0D28C292F200E8AFDA /* UserAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25554D0C28C292F200E8AFDA /* UserAuthorization.swift */; };
@@ -59,6 +63,10 @@
 		250C722128E4B83400B38AF7 /* SliderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderButton.swift; sourceTree = "<group>"; };
 		250C722428E5BAEC00B38AF7 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		2511736428E1E62300527977 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		251A141E2909A6220044FD32 /* Gilroy-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Light.ttf"; sourceTree = "<group>"; };
+		251A14202909A6C10044FD32 /* Gilroy-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Regular.ttf"; sourceTree = "<group>"; };
+		251A14222909A7FB0044FD32 /* Gilroy-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Medium.ttf"; sourceTree = "<group>"; };
+		251A14242909BDE30044FD32 /* SettingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableView.swift; sourceTree = "<group>"; };
 		251D6E5E28D23D73008ED74D /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		25227B6728E7975D0047B8C5 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		25554D0C28C292F200E8AFDA /* UserAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthorization.swift; sourceTree = "<group>"; };
@@ -309,6 +317,9 @@
 				25D160D22816F0FE00B1AE47 /* AppDelegate.swift */,
 				25D160D42816F0FE00B1AE47 /* SceneDelegate.swift */,
 				25D160DB2816F10000B1AE47 /* Assets.xcassets */,
+				251A14222909A7FB0044FD32 /* Gilroy-Medium.ttf */,
+				251A14202909A6C10044FD32 /* Gilroy-Regular.ttf */,
+				251A141E2909A6220044FD32 /* Gilroy-Light.ttf */,
 				25E7B32528FA121600A4312B /* Montserrat-Medium.ttf */,
 				25E7B32728FA142700A4312B /* Montserrat-Bold.ttf */,
 				25D160DD2816F10000B1AE47 /* LaunchScreen.storyboard */,
@@ -326,6 +337,7 @@
 				255D97F728D9E486002CBB38 /* Fonts */,
 				25FB404928CE49B9007FD823 /* TextFields */,
 				25B9DEB228D8A88B00819045 /* StringExtension.swift */,
+				251A14242909BDE30044FD32 /* SettingTableView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -404,8 +416,11 @@
 				25D160DF2816F10000B1AE47 /* LaunchScreen.storyboard in Resources */,
 				25E7B32628FA121600A4312B /* Montserrat-Medium.ttf in Resources */,
 				25E7B32828FA142700A4312B /* Montserrat-Bold.ttf in Resources */,
+				251A14212909A6C10044FD32 /* Gilroy-Regular.ttf in Resources */,
 				25E7B31828F8C42900A4312B /* Localizable.strings in Resources */,
 				25D160DC2816F10000B1AE47 /* Assets.xcassets in Resources */,
+				251A141F2909A6220044FD32 /* Gilroy-Light.ttf in Resources */,
+				251A14232909A7FB0044FD32 /* Gilroy-Medium.ttf in Resources */,
 				25227B6928E7975D0047B8C5 /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,6 +464,7 @@
 				251D6E5F28D23D73008ED74D /* UserInfoModel.swift in Sources */,
 				25FB403728CA467C007FD823 /* LogoutTableViewCell.swift in Sources */,
 				2584E44728EAEEA7009F0330 /* InfoAboutObjectView.swift in Sources */,
+				251A14252909BDE30044FD32 /* SettingTableView.swift in Sources */,
 				25554D0D28C292F200E8AFDA /* UserAuthorization.swift in Sources */,
 				25E0E1812906A32A00772A2A /* UnAuthAccountViewController.swift in Sources */,
 				255D980028DA5AAE002CBB38 /* ObjectTableViewCell.swift in Sources */,

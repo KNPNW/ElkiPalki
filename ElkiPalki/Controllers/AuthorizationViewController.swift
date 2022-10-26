@@ -35,7 +35,7 @@ class AuthorizationViewController: UIViewController {
         button.layer.cornerRadius = 10
         button.setTitle(NSLocalizedString("Sing in", comment: ""), for: .normal)
         button.titleLabel?.textAlignment = .center
-        button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 17)
+        button.titleLabel?.font = UIFont(name: "Gilroy-Regular", size: 17)
         button.setTitleColor(UIColor(named: "mainButtonTextColor"), for: UIControl.State.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

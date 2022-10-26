@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UnAuthAccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class UnAuthAccountViewController: UIViewController {
     
     let mainLogo : UIImageView = {
         let imageView = UIImageView()
@@ -23,7 +23,7 @@ class UnAuthAccountViewController: UIViewController, UITableViewDelegate, UITabl
         button.layer.cornerRadius = 10
         button.setTitle(NSLocalizedString("Sing in", comment: ""), for: .normal)
         button.titleLabel?.textAlignment = .center
-        button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 17)
+        button.titleLabel?.font = UIFont(name: "Gilroy-Regular", size: 17)
         button.setTitleColor(UIColor(named: "mainButtonTextColor"), for: UIControl.State.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -35,17 +35,14 @@ class UnAuthAccountViewController: UIViewController, UITableViewDelegate, UITabl
         button.layer.cornerRadius = 10
         button.setTitle(NSLocalizedString("Sing up", comment: ""), for: .normal)
         button.titleLabel?.textAlignment = .center
-        button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 17)
+        button.titleLabel?.font = UIFont(name: "Gilroy-Medium", size: 17)
         button.setTitleColor(UIColor(named: "mainButtonTextColor"), for: UIControl.State.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .insetGrouped)
-        tableView.backgroundColor = UIColor(named: "mainBackGroungColor")
-        tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: AccountTableViewCell.identifier)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var tableView: SettingTableView = {
+        let tableView = SettingTableView(frame: .zero, style: .insetGrouped)
         return tableView
     }()
     
@@ -62,9 +59,9 @@ class UnAuthAccountViewController: UIViewController, UITableViewDelegate, UITabl
         view.addSubview(registrateButton)
         view.addSubview(tableView)
         
-        tableView.delegate = self
-        tableView.dataSource = self
         configure()
+        
+        tableView.models = models
         
         enterButton.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
         
@@ -102,13 +99,13 @@ class UnAuthAccountViewController: UIViewController, UITableViewDelegate, UITabl
     
     func configure(){
         models.append(Section(title: "General", options: [
-            .staticCell(model: AccountOptions(title: NSLocalizedString("About app", comment: ""), icon: UIImage(systemName: "info"), iconBackGroundColor: .systemGray2 ){
+            .simpleCell(model: SimpleSettingOption(title: NSLocalizedString("About app", comment: ""), icon: UIImage(systemName: "info"), iconBackGroundColor: .systemGray2 ){
                 return
             }),
-            .staticCell(model: AccountOptions(title: NSLocalizedString("Information and help", comment: ""), icon: UIImage(systemName: "bubble.left.and.exclamationmark.bubble.right"), iconBackGroundColor: .systemGray2 ){
+            .simpleCell(model: SimpleSettingOption(title: NSLocalizedString("Information and help", comment: ""), icon: UIImage(systemName: "bubble.left.and.exclamationmark.bubble.right"), iconBackGroundColor: .systemGray2 ){
                 return
             }),
-            .staticCell(model: AccountOptions(title: NSLocalizedString("User agreement", comment: ""), icon: UIImage(systemName: "lock"), iconBackGroundColor: .systemGray2 ){
+            .simpleCell(model: SimpleSettingOption(title: NSLocalizedString("User agreement", comment: ""), icon: UIImage(systemName: "lock"), iconBackGroundColor: .systemGray2 ){
                 return
             })
             ]))
@@ -127,50 +124,4 @@ class UnAuthAccountViewController: UIViewController, UITableViewDelegate, UITabl
         authorizationView.modalTransitionStyle = .coverVertical
         present(authorizationView, animated: true, completion: nil)
     }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return models.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models[section].options.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = models[indexPath.section].options[indexPath.row]
-        
-        switch model.self {
-        case .staticCell(let model):
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: AccountTableViewCell.identifier,
-                for: indexPath
-            ) as? AccountTableViewCell else {
-                return UITableViewCell()
-            }
-            cell.configure(with: model)
-            return cell
-        case .logoutCell(let model):
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: LogoutTableViewCell.identifier,
-                for: indexPath
-            ) as? LogoutTableViewCell else {
-                return UITableViewCell()
-            }
-            cell.configure(with: model)
-            return cell
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let model = models[indexPath.section].options[indexPath.row]
-        switch model.self {
-        case .staticCell(let model):
-            model.handler()
-        case .logoutCell(let model):
-            model.handler()
-        }
-    }
-    
-
 }

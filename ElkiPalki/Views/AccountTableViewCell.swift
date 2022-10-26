@@ -21,8 +21,9 @@ class AccountTableViewCell: UITableViewCell {
     private let label: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = UIFont(name: "Montserrat-Medium", size: 15)
+        label.font = UIFont(name: "Gilroy-Regular", size: 16)
         label.textColor = UIColor(named: "mainTextColor")
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -55,12 +56,17 @@ class AccountTableViewCell: UITableViewCell {
         let imageSize: CGFloat = size/1.5
         iconImageView.frame = CGRect(x: (size-imageSize)/2, y: (size-imageSize)/2, width: imageSize, height: imageSize)
         
-        label.frame = CGRect(
-            x: 25 + iconContainer.frame.size.width,
-            y: 0,
-            width: contentView.frame.size.width - 20 - iconContainer.frame.size.width,
-            height: contentView.frame.size.height
-        )
+        label.leadingAnchor.constraint(equalTo: iconContainer.trailingAnchor, constant: 10).isActive = true
+        label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        label.heightAnchor.constraint(equalTo: contentView.heightAnchor).isActive = true
+        label.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        
+//        label.frame = CGRect(
+//            x: 25 + iconContainer.frame.size.width,
+//            y: 0,
+//            width: contentView.frame.size.width - 20 - iconContainer.frame.size.width,
+//            height: contentView.frame.size.height
+//        )
     }
     
     override func prepareForReuse() {
@@ -70,7 +76,7 @@ class AccountTableViewCell: UITableViewCell {
         iconContainer.backgroundColor = nil
     }
     
-    public func configure(with model: AccountOptions) {
+    public func configure(with model: SimpleSettingOption) {
         label.text = model.title
         iconImageView.image = model.icon
         iconContainer.backgroundColor = model.iconBackGroundColor

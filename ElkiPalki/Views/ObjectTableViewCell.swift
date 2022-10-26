@@ -24,7 +24,7 @@ class ObjectTableViewCell: UITableViewCell {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = UIFont(name: "Montserrat-Medium", size: 20)
+        label.font = UIFont(name: "Gilroy-Medium", size: 20)
         label.textColor = UIColor(named: "mainTextColor")
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -96,14 +96,14 @@ class ObjectTableViewCell: UITableViewCell {
 //        loadingView.centerXAnchor.constraint(equalTo: cardView.centerXAnchor).isActive = true
 //        loadingView.centerYAnchor.constraint(equalTo: cardView.centerYAnchor, constant: -50).isActive = true
         
-        nameLabel.topAnchor.constraint(equalTo: objectImageView.bottomAnchor, constant: 15).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: objectImageView.bottomAnchor, constant: 20).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -10).isActive = true
         nameLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         infoAboutIbject.topAnchor.constraint(equalTo: nameLabel.bottomAnchor).isActive = true
         infoAboutIbject.widthAnchor.constraint(equalTo: cardView.widthAnchor).isActive = true
-        infoAboutIbject.heightAnchor.constraint(equalToConstant: 130).isActive = true
+        infoAboutIbject.heightAnchor.constraint(equalToConstant: 110).isActive = true
         
         loadingView.frame = CGRect(x: cardView.frame.width/2-40, y: 65, width: 80, height: 80)
         
