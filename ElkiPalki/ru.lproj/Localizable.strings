@@ -11,6 +11,10 @@
 "Settings" = "Настройки";
 "Logout" = "Выйти";
 
+"About app" = "О Приложении";
+"Information and help" = "Информация и помощь";
+"User agreement" = "Пользовательское соглашение";
+
 //MARK: - tabBarItem
 "Personal account" = "Личный кабинет";
 "Projects" = "Проекты";

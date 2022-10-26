@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class RegistrateViewController: UIViewController {
+class RegistrationViewController: UIViewController {
     
     let lineImageView: UIImageView = {
         let imageView = UIImageView()
@@ -48,7 +48,7 @@ class RegistrateViewController: UIViewController {
         button.setTitle(NSLocalizedString("Sing up", comment: ""), for: .normal)
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 17)
-        button.setTitleColor(UIColor(named: "White"), for: UIControl.State.normal)
+        button.setTitleColor(UIColor(named: "mainButtonTextColor"), for: UIControl.State.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -113,11 +113,8 @@ class RegistrateViewController: UIViewController {
                 UserSettings.userEmail = email
                 UserSettings.userRefreshToken = responseData.tokens.refreshToken
                 DispatchQueue.main.async {
-                    let mainView = MainViewController()
-                    mainView.modalPresentationStyle = .fullScreen
-                    mainView.modalTransitionStyle = .coverVertical
-                    self.present(mainView, animated: true, completion: nil)
-                    return
+                    UserSettings.isAuthorized = true
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController()
                 }
             case .failure (let error):
                 print(error)

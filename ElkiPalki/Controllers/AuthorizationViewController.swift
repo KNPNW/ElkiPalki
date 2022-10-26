@@ -36,7 +36,7 @@ class AuthorizationViewController: UIViewController {
         button.setTitle(NSLocalizedString("Sing in", comment: ""), for: .normal)
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 17)
-        button.setTitleColor(UIColor(named: "White"), for: UIControl.State.normal)
+        button.setTitleColor(UIColor(named: "mainButtonTextColor"), for: UIControl.State.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -85,7 +85,6 @@ class AuthorizationViewController: UIViewController {
         }
     }
     
-    
     @objc func enterButtonTapped() {
         guard let email = logintTextField.textField.text, let password = passwordTextField.textField.text, email != "", password != "" else {
             passwordTextField.showError()
@@ -99,13 +98,11 @@ class AuthorizationViewController: UIViewController {
         postRequest.login(userAuthorization, completion: {result in
             switch result {
             case .success(let responseData):
-                UserDefaults.standard.set(responseData.tokens.refreshToken, forKey: "refreshToken")
+                UserSettings.userEmail = email
+                UserSettings.userRefreshToken = responseData.tokens.refreshToken
                 DispatchQueue.main.async {
-                    let mainView = MainViewController()
-                    mainView.modalPresentationStyle = .fullScreen
-                    mainView.modalTransitionStyle = .coverVertical
-                    self.present(mainView, animated: true, completion: nil)
-                    return
+                    UserSettings.isAuthorized = true
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController()
                 }
             case .failure(let error):
                 print(error)

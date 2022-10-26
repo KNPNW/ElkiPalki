@@ -11,6 +11,10 @@
 "Settings" = "Settings";
 "Logout" = "Logout";
 
+"About app" = "About app";
+"Information and help" = "Information and help";
+"User agreement" = "User agreement";
+
 //MARK: - tabBarItem
 "Personal account" = "Personal account";
 "Projects" = "Projects";
@@ -28,3 +32,4 @@
 //MARK: - CustomTextField
 "Close" = "Close";
 "Done" = "Done";
+

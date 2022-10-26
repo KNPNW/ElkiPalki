@@ -25,7 +25,7 @@ class FirstViewController: UIViewController {
         button.setTitle(NSLocalizedString("Sing in", comment: ""), for: .normal)
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 17)
-        button.setTitleColor(UIColor(named: "White"), for: UIControl.State.normal)
+        button.setTitleColor(UIColor(named: "mainButtonTextColor"), for: UIControl.State.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -37,14 +37,14 @@ class FirstViewController: UIViewController {
         button.setTitle(NSLocalizedString("Sing up", comment: ""), for: .normal)
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 17)
-        button.setTitleColor(UIColor(named: "White"), for: UIControl.State.normal)
+        button.setTitleColor(UIColor(named: "mainButtonTextColor"), for: UIControl.State.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     let withoutRegButton : UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor(named: "White")
+//        button.backgroundColor = UIColor(named: "mainColor")
         button.layer.cornerRadius = 10
         button.setTitle(NSLocalizedString("Continue without registration", comment: ""), for: .normal)
         button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 17)
@@ -55,13 +55,16 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "White")
+        view.backgroundColor = UIColor(named: "mainBackGroungColor")
+        
+        UserSettings.isFirstLaunch = false
         
         enterButton.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
         
         registrateButton.addTarget(self, action: #selector(registrateButtonTapped), for: .touchUpInside)
         
         withoutRegButton.addTarget(self, action: #selector(withoutRegButtonTapped), for: .touchUpInside)
+        
         setConstraints()
     }
     
@@ -78,7 +81,7 @@ class FirstViewController: UIViewController {
     }
     
     @objc func registrateButtonTapped() {
-        let authorizationView = RegistrateViewController()
+        let authorizationView = RegistrationViewController()
         authorizationView.modalPresentationStyle = .pageSheet
         authorizationView.modalTransitionStyle = .coverVertical
         present(authorizationView, animated: true, completion: nil)
@@ -86,10 +89,7 @@ class FirstViewController: UIViewController {
     
     
     @objc func withoutRegButtonTapped() {
-        let mainView = MainViewController()
-        mainView.modalPresentationStyle = .fullScreen
-        mainView.modalTransitionStyle = .flipHorizontal
-        present(mainView, animated: true, completion: nil)
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController()
     }
 
 

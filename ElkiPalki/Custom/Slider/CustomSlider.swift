@@ -33,7 +33,7 @@ class CustomSlider: UIControl {
         self.normalImage = commaSeparatedNormalImages.components(separatedBy: ",")
         self.activeImage = commaSeparatedActiveImages.components(separatedBy: ",")
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundColor = .white
+        self.backgroundColor = UIColor(named: "mainBackGroungColor")
 //        self.clipsToBounds = true
 //        self.layer.cornerRadius = 10
         configure()

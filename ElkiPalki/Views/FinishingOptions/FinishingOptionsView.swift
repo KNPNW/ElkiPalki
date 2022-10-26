@@ -13,7 +13,7 @@ class FinishingOptionsView: UIView {
         let label = UILabel()
         label.numberOfLines = 1
         label.font = UIFont(name: "Montserrat-Bold", size: 19)
-        label.tintColor = .black
+        label.textColor = UIColor(named: "mainTextColor")
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -28,7 +28,7 @@ class FinishingOptionsView: UIView {
         let pageController = UIPageControl()
 //        pageController.numberOfPages = data.count
         pageController.currentPageIndicatorTintColor = UIColor(named: "ElGreen")
-        pageController.pageIndicatorTintColor = .systemGray6
+        pageController.pageIndicatorTintColor = .systemGray5
         pageController.translatesAutoresizingMaskIntoConstraints = false
         return pageController
     }()

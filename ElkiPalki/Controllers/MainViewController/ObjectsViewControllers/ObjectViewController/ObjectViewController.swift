@@ -24,7 +24,7 @@ class ObjectViewController: UIViewController {
         let label = UILabel()
         label.numberOfLines = 1
         label.font = UIFont(name: "Montserrat-Medium", size: 22)
-        label.tintColor = .black
+        label.textColor = UIColor(named: "mainTextColor")
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -44,7 +44,7 @@ class ObjectViewController: UIViewController {
     let imageScrollIndicator: UIPageControl = {
         let pageController = UIPageControl()
         pageController.currentPageIndicatorTintColor = UIColor(named: "ElGreen")
-        pageController.pageIndicatorTintColor = .systemGray6
+        pageController.pageIndicatorTintColor = .systemGray5
         pageController.translatesAutoresizingMaskIntoConstraints = false
         return pageController
     }()
@@ -70,6 +70,7 @@ class ObjectViewController: UIViewController {
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 17)
         button.backgroundColor = UIColor(named: "ElGreen")
+        button.setTitleColor(UIColor(named: "mainButtonTextColor"), for: UIControl.State.normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -99,6 +100,7 @@ class ObjectViewController: UIViewController {
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 17)
         button.backgroundColor = UIColor(named: "ElGreen")
+        button.setTitleColor(UIColor(named: "mainButtonTextColor"), for: UIControl.State.normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -117,7 +119,7 @@ class ObjectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "mainBackGroungColor")
                 
         downloadInfoAboutObject()
         

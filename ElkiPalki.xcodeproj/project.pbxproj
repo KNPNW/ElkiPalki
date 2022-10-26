@@ -24,19 +24,20 @@
 		255F206E28F75C49004B8DC2 /* ObjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255F206D28F75C49004B8DC2 /* ObjectsViewController.swift */; };
 		257DC77528EF516A0002E548 /* FinishingOptionsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257DC77428EF516A0002E548 /* FinishingOptionsScrollView.swift */; };
 		257DC77828EF5D650002E548 /* FinishingOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257DC77728EF5D650002E548 /* FinishingOptionsView.swift */; };
-		257F7BD8281D90B000BCDB11 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BD7281D90B000BCDB11 /* MainViewController.swift */; };
 		257F7BDA281D9F4300BCDB11 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BD9281D9F4300BCDB11 /* AuthorizationViewController.swift */; };
-		257F7BDF281DAEF700BCDB11 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BDE281DAEF700BCDB11 /* AccountViewController.swift */; };
+		257F7BDF281DAEF700BCDB11 /* AuthAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BDE281DAEF700BCDB11 /* AuthAccountViewController.swift */; };
 		257F7BE1281DAF0500BCDB11 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BE0281DAF0500BCDB11 /* AboutViewController.swift */; };
 		257F7BE4281DCCBE00BCDB11 /* HouseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BE3281DCCBE00BCDB11 /* HouseTableViewCell.swift */; };
 		2584E44728EAEEA7009F0330 /* InfoAboutObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2584E44628EAEEA7009F0330 /* InfoAboutObjectView.swift */; };
-		25B0A48D289D974400DCE5CA /* RegistrateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B0A48C289D974400DCE5CA /* RegistrateViewController.swift */; };
+		25B0A48D289D974400DCE5CA /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B0A48C289D974400DCE5CA /* RegistrationViewController.swift */; };
 		25B9DEB328D8A88B00819045 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B9DEB228D8A88B00819045 /* StringExtension.swift */; };
+		25CB287A29082CB20010456C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CB287929082CB20010456C /* MainViewController.swift */; };
 		25D160D32816F0FE00B1AE47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D160D22816F0FE00B1AE47 /* AppDelegate.swift */; };
 		25D160D52816F0FE00B1AE47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D160D42816F0FE00B1AE47 /* SceneDelegate.swift */; };
 		25D160D72816F0FE00B1AE47 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D160D62816F0FE00B1AE47 /* FirstViewController.swift */; };
 		25D160DC2816F10000B1AE47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25D160DB2816F10000B1AE47 /* Assets.xcassets */; };
 		25D160DF2816F10000B1AE47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25D160DD2816F10000B1AE47 /* LaunchScreen.storyboard */; };
+		25E0E1812906A32A00772A2A /* UnAuthAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E0E17F2906A32A00772A2A /* UnAuthAccountViewController.swift */; };
 		25E7B31428F88F8200A4312B /* TableViewCellAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E7B31328F88F8200A4312B /* TableViewCellAnimation.swift */; };
 		25E7B31828F8C42900A4312B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25E7B31628F8C42800A4312B /* Localizable.strings */; };
 		25E7B32628FA121600A4312B /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25E7B32528FA121600A4312B /* Montserrat-Medium.ttf */; };
@@ -72,14 +73,14 @@
 		255F206D28F75C49004B8DC2 /* ObjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectsViewController.swift; sourceTree = "<group>"; };
 		257DC77428EF516A0002E548 /* FinishingOptionsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishingOptionsScrollView.swift; sourceTree = "<group>"; };
 		257DC77728EF5D650002E548 /* FinishingOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishingOptionsView.swift; sourceTree = "<group>"; };
-		257F7BD7281D90B000BCDB11 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		257F7BD9281D9F4300BCDB11 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
-		257F7BDE281DAEF700BCDB11 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		257F7BDE281DAEF700BCDB11 /* AuthAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAccountViewController.swift; sourceTree = "<group>"; };
 		257F7BE0281DAF0500BCDB11 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		257F7BE3281DCCBE00BCDB11 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
 		2584E44628EAEEA7009F0330 /* InfoAboutObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAboutObjectView.swift; sourceTree = "<group>"; };
-		25B0A48C289D974400DCE5CA /* RegistrateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrateViewController.swift; sourceTree = "<group>"; };
+		25B0A48C289D974400DCE5CA /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		25B9DEB228D8A88B00819045 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		25CB287929082CB20010456C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		25D160CF2816F0FE00B1AE47 /* ElkiPalki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElkiPalki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D160D22816F0FE00B1AE47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25D160D42816F0FE00B1AE47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +88,7 @@
 		25D160DB2816F10000B1AE47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25D160DE2816F10000B1AE47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25D160E02816F10000B1AE47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25E0E17F2906A32A00772A2A /* UnAuthAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnAuthAccountViewController.swift; sourceTree = "<group>"; };
 		25E7B31328F88F8200A4312B /* TableViewCellAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellAnimation.swift; sourceTree = "<group>"; };
 		25E7B31528F8C3A900A4312B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		25E7B31728F8C42900A4312B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ElkiPalki/ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -184,7 +186,8 @@
 		255F207128F75D39004B8DC2 /* AccountViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				257F7BDE281DAEF700BCDB11 /* AccountViewController.swift */,
+				25E0E17F2906A32A00772A2A /* UnAuthAccountViewController.swift */,
+				257F7BDE281DAEF700BCDB11 /* AuthAccountViewController.swift */,
 				255F207328F75D96004B8DC2 /* ProfileViewControllers */,
 				255F207428F75DB4004B8DC2 /* ActiveProjectsViewControllers */,
 				255F207528F75E03004B8DC2 /* ApplicationsViewControllers */,
@@ -245,13 +248,10 @@
 		257F7BDB281DAE7F00BCDB11 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				255F207128F75D39004B8DC2 /* AccountViewControllers */,
-				255F206F28F75C68004B8DC2 /* ObjectsViewControllers */,
-				255F207228F75D57004B8DC2 /* AboutViewControllers */,
+				25A49A8A29099F9F00235A92 /* MainViewController */,
 				25D160D62816F0FE00B1AE47 /* FirstViewController.swift */,
 				257F7BD9281D9F4300BCDB11 /* AuthorizationViewController.swift */,
-				25B0A48C289D974400DCE5CA /* RegistrateViewController.swift */,
-				257F7BD7281D90B000BCDB11 /* MainViewController.swift */,
+				25B0A48C289D974400DCE5CA /* RegistrationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -268,6 +268,17 @@
 				2584E44628EAEEA7009F0330 /* InfoAboutObjectView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		25A49A8A29099F9F00235A92 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				25CB287929082CB20010456C /* MainViewController.swift */,
+				255F207128F75D39004B8DC2 /* AccountViewControllers */,
+				255F206F28F75C68004B8DC2 /* ObjectsViewControllers */,
+				255F207228F75D57004B8DC2 /* AboutViewControllers */,
+			);
+			path = MainViewController;
 			sourceTree = "<group>";
 		};
 		25D160C62816F0FE00B1AE47 = {
@@ -409,10 +420,11 @@
 				250C721E28E4972300B38AF7 /* PilesView.swift in Sources */,
 				25554D0F28C2939F00E8AFDA /* ApiRequest.swift in Sources */,
 				25554D1328C3B67100E8AFDA /* Errors.swift in Sources */,
-				25B0A48D289D974400DCE5CA /* RegistrateViewController.swift in Sources */,
+				25B0A48D289D974400DCE5CA /* RegistrationViewController.swift in Sources */,
 				25D160D72816F0FE00B1AE47 /* FirstViewController.swift in Sources */,
 				2511736528E1E62400527977 /* LoadingView.swift in Sources */,
 				250C722028E4AA9300B38AF7 /* CustomSlider.swift in Sources */,
+				25CB287A29082CB20010456C /* MainViewController.swift in Sources */,
 				257DC77828EF5D650002E548 /* FinishingOptionsView.swift in Sources */,
 				25FB403428CA2736007FD823 /* AccountTableViewCell.swift in Sources */,
 				250C721C28E32D3300B38AF7 /* ObjectViewController.swift in Sources */,
@@ -425,13 +437,12 @@
 				250C722528E5BAEC00B38AF7 /* SliderView.swift in Sources */,
 				255F206A28F73BAD004B8DC2 /* Objects.swift in Sources */,
 				25FB404B28CE49E8007FD823 /* CustomTextField.swift in Sources */,
-				257F7BDF281DAEF700BCDB11 /* AccountViewController.swift in Sources */,
+				257F7BDF281DAEF700BCDB11 /* AuthAccountViewController.swift in Sources */,
 				25D160D52816F0FE00B1AE47 /* SceneDelegate.swift in Sources */,
 				25FB403D28CB643E007FD823 /* ProfileViewController.swift in Sources */,
 				257F7BE4281DCCBE00BCDB11 /* HouseTableViewCell.swift in Sources */,
 				257F7BDA281D9F4300BCDB11 /* AuthorizationViewController.swift in Sources */,
 				25FB404728CCB6DA007FD823 /* SettingsViewController.swift in Sources */,
-				257F7BD8281D90B000BCDB11 /* MainViewController.swift in Sources */,
 				257DC77528EF516A0002E548 /* FinishingOptionsScrollView.swift in Sources */,
 				257F7BE1281DAF0500BCDB11 /* AboutViewController.swift in Sources */,
 				25FB403B28CB59A5007FD823 /* UserSettings.swift in Sources */,
@@ -439,6 +450,7 @@
 				25FB403728CA467C007FD823 /* LogoutTableViewCell.swift in Sources */,
 				2584E44728EAEEA7009F0330 /* InfoAboutObjectView.swift in Sources */,
 				25554D0D28C292F200E8AFDA /* UserAuthorization.swift in Sources */,
+				25E0E1812906A32A00772A2A /* UnAuthAccountViewController.swift in Sources */,
 				255D980028DA5AAE002CBB38 /* ObjectTableViewCell.swift in Sources */,
 				25554D1128C2994E00E8AFDA /* Tokens.swift in Sources */,
 				25FB404528CCB6B5007FD823 /* ApplicationsViewController.swift in Sources */,

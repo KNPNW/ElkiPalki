@@ -46,8 +46,8 @@ class LoadingView: UIView {
         let gradient = CAGradientLayer()
         gradient.frame = bounds
         gradient.colors = [
-            UIColor.white.cgColor,
-            UIColor.white.cgColor,
+            UIColor(named: "mainBackGroungColor")!.cgColor,
+            UIColor(named: "mainBackGroungColor")!.cgColor,
             UIColor(named: "ElGreen")!.cgColor
         ]
         

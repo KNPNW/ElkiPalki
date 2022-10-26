@@ -28,10 +28,10 @@ class PilesView: UIView {
     
     private lazy var blackLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
         label.numberOfLines = 1
         label.font = UIFont(name: "Montserrat-Medium", size: 15)
         label.text = "включен в стоимость"
+        label.textColor = UIColor(named: "mainTextColor")
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -47,7 +47,7 @@ class PilesView: UIView {
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundColor = .white
+        self.backgroundColor = UIColor(named: "mainBackGroungColor")
         self.clipsToBounds = true
         self.layer.cornerRadius = 10
         configure()

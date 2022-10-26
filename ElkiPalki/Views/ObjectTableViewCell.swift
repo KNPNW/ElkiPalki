@@ -14,7 +14,7 @@ class ObjectTableViewCell: UITableViewCell {
     
     private lazy var cardView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "White")
+        view.backgroundColor = UIColor(named: "mainBackGroungColor")
         view.clipsToBounds = true
         view.layer.cornerRadius = 10
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -25,7 +25,7 @@ class ObjectTableViewCell: UITableViewCell {
         let label = UILabel()
         label.numberOfLines = 1
         label.font = UIFont(name: "Montserrat-Medium", size: 20)
-        label.tintColor = .black
+        label.textColor = UIColor(named: "mainTextColor")
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -51,7 +51,7 @@ class ObjectTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.backgroundColor = UIColor(named: "White")
+        contentView.backgroundColor = UIColor(named: "mainBackGroungColor")
         contentView.addSubview(shadowView)
         shadowView.addSubview(cardView)
         

@@ -22,6 +22,7 @@ class AccountTableViewCell: UITableViewCell {
         let label = UILabel()
         label.numberOfLines = 1
         label.font = UIFont(name: "Montserrat-Medium", size: 15)
+        label.textColor = UIColor(named: "mainTextColor")
         return label
     }()
     

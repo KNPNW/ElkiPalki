@@ -12,7 +12,7 @@ class LogoutTableViewCell: UITableViewCell {
     static let identifier = "LogoutTableViewCell"
     
     private lazy var contenerView: UIView = {
-        let view = UIView(frame: CGRect(x: self.contentView.frame.size.width/2-65, y: self.contentView.frame.size.height/2-20, width: 130, height: contentView.frame.size.height))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: contentView.frame.size.width, height: contentView.frame.size.height))
         return view
     }()
     

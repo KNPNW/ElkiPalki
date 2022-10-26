@@ -24,7 +24,8 @@ struct AccountOptions {
     let handler: (()->Void)
 }
 
-class AccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AuthAccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     
     private lazy var greetingLabel: UILabel = {
         let text = UILabel(frame: headerTableView.frame)
@@ -44,6 +45,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: CGRect(x: 0, y: -25, width: view.frame.size.width, height: view.frame.size.height), style: .insetGrouped)
+        tableView.backgroundColor = UIColor(named: "mainBackGroungColor")
         tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: AccountTableViewCell.identifier)
         tableView.register(LogoutTableViewCell.self, forCellReuseIdentifier: LogoutTableViewCell.identifier)
         return tableView
@@ -64,7 +66,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backItem
         configure()
         
-        view.backgroundColor = UIColor(named: "White")
+        view.backgroundColor = UIColor(named: "mainBackGroungColor")
         
         headerTableView.addSubview(greetingLabel)
         tableView.tableHeaderView = headerTableView
@@ -77,7 +79,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func configure(){
-        models.append(Section(title: "General", options: [
+        models.append(Section(title: "User", options: [
             .staticCell(model: AccountOptions(title: NSLocalizedString("Profile", comment: ""), icon: UIImage(systemName: "person"), iconBackGroundColor: UIColor(named:
                 "ElGreen")){
                 self.navigationController?.pushViewController(ProfileViewController(), animated: true)
@@ -96,21 +98,43 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 return
             })
             ]))
+        
+        models.append(Section(title: "General", options: [
+            .staticCell(model: AccountOptions(title: NSLocalizedString("About app", comment: ""), icon: UIImage(systemName: "info"), iconBackGroundColor: .systemGray4){
+                return
+            }),
+            .staticCell(model: AccountOptions(title: NSLocalizedString("Information and help", comment: ""), icon: UIImage(systemName: "bubble.left.and.exclamationmark.bubble.right"), iconBackGroundColor: .systemGray4 ){
+                return
+            }),
+            .staticCell(model: AccountOptions(title: NSLocalizedString("User agreement", comment: ""), icon: UIImage(systemName: "lock"), iconBackGroundColor: .systemGray4 ){
+                return
+            })
+            ]))
+        
         models.append(Section(title: "Logout", options: [
-            .logoutCell(model: AccountLogoutOptions(title: NSLocalizedString("Logout", comment: ""), color: UIColor(named: "Red"), handler: {
+            .logoutCell(model: AccountLogoutOptions(title: NSLocalizedString("Logout", comment: ""), color: UIColor(named: "errorColor"), handler: {
                 UserDefaults.standard.removeObject(forKey: "userRefreshToken")
                 UserDefaults.standard.removeObject(forKey: "userEmail")
                 
-                let view = FirstViewController()
-                view.modalPresentationStyle = .fullScreen
-                view.modalTransitionStyle = .crossDissolve
+                UserSettings.isAuthorized = false
+//                viewController.modalPresentationStyle = .fullScreen
+//                viewController.modalTransitionStyle = .coverVertical
+//                self.dismiss(animated: true)
+//                self.show(viewController, sender: nil)
                 
-                self.dismiss(animated: true)
-                self.present(view, animated: true)
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController()
+//                let view = FirstViewController()
+//                view.modalPresentationStyle = .fullScreen
+//                view.modalTransitionStyle = .crossDissolve
+//
+//                self.dismiss(animated: true)
+//                self.present(view, animated: true)
                 return
             }))
+        
         ]))
     }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return models.count
@@ -162,6 +186,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 }
 
-extension AccountViewController {
+extension AuthAccountViewController {
 }
 

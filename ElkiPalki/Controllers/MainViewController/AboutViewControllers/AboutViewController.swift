@@ -144,9 +144,7 @@ class AboutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "О Нас"
-
-        view.backgroundColor = UIColor(named: "White")
-        
+        view.backgroundColor = UIColor(named: "mainBackGroungColor")
         view.addSubview(mainScrollView)
         
         mainScrollView.addSubview(contentView)

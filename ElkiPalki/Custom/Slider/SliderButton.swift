@@ -17,7 +17,7 @@ class SliderButton: UIButton {
     
     let label: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = UIColor(named: "mainTextColor")
         label.textAlignment = .center
         label.numberOfLines = 2
         label.font = UIFont(name: "Montserrat-Medium", size: 9)

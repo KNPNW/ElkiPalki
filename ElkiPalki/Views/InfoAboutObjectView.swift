@@ -30,7 +30,7 @@ class InfoAboutObjectView: UIView {
         let label = UILabel()
         label.numberOfLines = 2
         label.font = UIFont(name: "Montserrat-Medium", size: 13)
-        label.tintColor = .black
+        label.textColor = UIColor(named: "mainTextColor")
         label.textAlignment = .left
         return label
     }()
@@ -46,7 +46,7 @@ class InfoAboutObjectView: UIView {
         let label = UILabel()
         label.numberOfLines = 2
         label.font = UIFont(name: "Montserrat-Medium", size: 13)
-        label.tintColor = .black
+        label.textColor = UIColor(named: "mainTextColor")
         label.textAlignment = .left
         return label
     }()
@@ -72,7 +72,7 @@ class InfoAboutObjectView: UIView {
         let label = UILabel()
         label.numberOfLines = 2
         label.font = UIFont(name: "Montserrat-Medium", size: 13)
-        label.tintColor = .black
+        label.textColor = UIColor(named: "mainTextColor")
         label.textAlignment = .left
         return label
     }()
@@ -88,7 +88,7 @@ class InfoAboutObjectView: UIView {
         let label = UILabel()
         label.numberOfLines = 2
         label.font = UIFont(name: "Montserrat-Medium", size: 13)
-        label.tintColor = .black
+        label.textColor = UIColor(named: "mainTextColor")
         label.textAlignment = .left
         return label
     }()
@@ -114,7 +114,7 @@ class InfoAboutObjectView: UIView {
     init(frame: CGRect = .zero, addShadow: Bool = false) {
         self.addShadow = addShadow
         super.init(frame: frame)
-        self.backgroundColor = UIColor(named: "White")
+        self.backgroundColor = UIColor(named: "mainBackGroungColor")
         self.clipsToBounds = true
         self.layer.cornerRadius = 10
         self.translatesAutoresizingMaskIntoConstraints = false

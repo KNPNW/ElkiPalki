@@ -25,6 +25,7 @@ class SliderView: UIView {
         let label = UILabel()
         label.text = "Стоимость"
         label.textAlignment = .center
+        label.textColor = UIColor(named: "mainTextColor")
         label.font = UIFont(name: "Montserrat-Bold", size: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -50,6 +51,7 @@ class SliderView: UIView {
         let label = UILabel()
         label.text = "В кредит"
         label.textAlignment = .center
+        label.textColor = UIColor(named: "mainTextColor")
         label.font = UIFont(name: "Montserrat-Bold", size: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -58,6 +60,7 @@ class SliderView: UIView {
     private lazy var creditValueLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.textColor = UIColor(named: "mainTextColor")
         label.font = UIFont(name: "Montserrat-Medium", size: 21)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -76,8 +79,6 @@ class SliderView: UIView {
         stack.backgroundColor = .systemGray6
         stack.clipsToBounds = true
         stack.layer.cornerRadius = 10
-//        stack.alignment = .fill
-//        stack.distribution = .fillProportionally
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()

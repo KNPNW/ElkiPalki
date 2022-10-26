@@ -55,7 +55,7 @@ class FinishingOptionsScrollView: UIScrollView, UIScrollViewDelegate{
                 label.text = nameOption
                 label.numberOfLines = 1
                 label.font = UIFont(name: "Montserrat-Medium", size: 18)
-                label.tintColor = .black
+                label.textColor = UIColor(named: "mainTextColor")
                 label.textAlignment = .center
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
@@ -66,29 +66,7 @@ class FinishingOptionsScrollView: UIScrollView, UIScrollViewDelegate{
             stack.addArrangedSubview(label)
             self.addSubview(stack)
             stacksView.append(stack)
-        }
-        
-        
-//        for name in images.keys {
-//            let image = UIImage(named: name)
-//            let imageView = UIImageView(image: image)
-//            var nameLabel: UILabel = {
-//                let label = UILabel()
-//                label.text = images[name]
-//                label.numberOfLines = 1
-//                label.font = UIFont.boldSystemFont(ofSize: 24)
-//                label.tintColor = .black
-//                label.textAlignment = .left
-//                label.translatesAutoresizingMaskIntoConstraints = false
-//                return label
-//            }()
-//
-//            imageView.contentMode = .scaleAspectFill
-//            self.addSubview(imageView)
-//            self.addSubview(nameLabel)
-//            imagesView.append(imageView)
-//        }
-        
+        }        
     }
     
     override func layoutSubviews() {
