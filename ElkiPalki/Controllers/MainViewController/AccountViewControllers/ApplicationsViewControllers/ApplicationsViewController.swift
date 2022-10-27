@@ -15,6 +15,10 @@ class ApplicationsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    private func setConstraints () {
+        
+    }
+
 
     /*
     // MARK: - Navigation

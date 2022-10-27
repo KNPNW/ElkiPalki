@@ -84,16 +84,11 @@ class ProfileViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Профиль"
         
-        let saveG = view.safeAreaLayoutGuide
-
-        
-        
         
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(stackView)
-        
-        
+
         stackView.addArrangedSubview(firstName)
         stackView.addArrangedSubview(lastName)
         stackView.addArrangedSubview(dateOfBirth)
@@ -103,9 +98,15 @@ class ProfileViewController: UIViewController {
         
         view.addSubview(saveButton)
         
-        scrollView.topAnchor.constraint(equalTo: saveG.topAnchor).isActive = true
-        scrollView.widthAnchor.constraint(equalTo: saveG.widthAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: saveG.bottomAnchor, constant: -100).isActive = true
+        saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+        
+        setConstraint()
+    }
+    
+    private func setConstraints () {
+        scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        scrollView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -100).isActive = true
         
         stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 25).isActive = true
         stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
@@ -116,8 +117,6 @@ class ProfileViewController: UIViewController {
         saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         saveButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
-        setConstraint()
     }
     
     @objc func saveButtonTapped() {

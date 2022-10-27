@@ -161,6 +161,12 @@ class AboutViewController: UIViewController {
         contentView.addSubview(contactInfoLabel)
         contentView.addSubview(getConsultationButton)
         
+        
+        setConstraints()
+        
+    }
+    
+    private func setConstraints () {
         mainScrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         mainScrollView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
         mainScrollView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor).isActive = true
@@ -224,10 +230,7 @@ class AboutViewController: UIViewController {
         getConsultationButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
         getConsultationButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         getConsultationButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

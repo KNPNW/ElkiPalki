@@ -17,6 +17,7 @@
 		251A14212909A6C10044FD32 /* Gilroy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 251A14202909A6C10044FD32 /* Gilroy-Regular.ttf */; };
 		251A14232909A7FB0044FD32 /* Gilroy-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 251A14222909A7FB0044FD32 /* Gilroy-Medium.ttf */; };
 		251A14252909BDE30044FD32 /* SettingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251A14242909BDE30044FD32 /* SettingTableView.swift */; };
+		251A142C290B03460044FD32 /* ObjectsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251A142B290B03460044FD32 /* ObjectsTableView.swift */; };
 		251D6E5F28D23D73008ED74D /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251D6E5E28D23D73008ED74D /* UserInfoModel.swift */; };
 		25227B6928E7975D0047B8C5 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25227B6728E7975D0047B8C5 /* ViewController.xib */; };
 		25554D0D28C292F200E8AFDA /* UserAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25554D0C28C292F200E8AFDA /* UserAuthorization.swift */; };
@@ -31,7 +32,6 @@
 		257F7BDA281D9F4300BCDB11 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BD9281D9F4300BCDB11 /* AuthorizationViewController.swift */; };
 		257F7BDF281DAEF700BCDB11 /* AuthAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BDE281DAEF700BCDB11 /* AuthAccountViewController.swift */; };
 		257F7BE1281DAF0500BCDB11 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BE0281DAF0500BCDB11 /* AboutViewController.swift */; };
-		257F7BE4281DCCBE00BCDB11 /* HouseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BE3281DCCBE00BCDB11 /* HouseTableViewCell.swift */; };
 		2584E44728EAEEA7009F0330 /* InfoAboutObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2584E44628EAEEA7009F0330 /* InfoAboutObjectView.swift */; };
 		25B0A48D289D974400DCE5CA /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B0A48C289D974400DCE5CA /* RegistrationViewController.swift */; };
 		25B9DEB328D8A88B00819045 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B9DEB228D8A88B00819045 /* StringExtension.swift */; };
@@ -67,15 +67,13 @@
 		251A14202909A6C10044FD32 /* Gilroy-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Regular.ttf"; sourceTree = "<group>"; };
 		251A14222909A7FB0044FD32 /* Gilroy-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Medium.ttf"; sourceTree = "<group>"; };
 		251A14242909BDE30044FD32 /* SettingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableView.swift; sourceTree = "<group>"; };
+		251A142B290B03460044FD32 /* ObjectsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectsTableView.swift; sourceTree = "<group>"; };
 		251D6E5E28D23D73008ED74D /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		25227B6728E7975D0047B8C5 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		25554D0C28C292F200E8AFDA /* UserAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthorization.swift; sourceTree = "<group>"; };
 		25554D0E28C2939F00E8AFDA /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		25554D1028C2994E00E8AFDA /* Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokens.swift; sourceTree = "<group>"; };
 		25554D1228C3B67100E8AFDA /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
-		255D97F828D9E4A4002CBB38 /* Mariupol-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mariupol-Bold.ttf"; sourceTree = "<group>"; };
-		255D97F928D9E4A4002CBB38 /* Mariupol-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mariupol-Regular.ttf"; sourceTree = "<group>"; };
-		255D97FA28D9E4A4002CBB38 /* Mariupol-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mariupol-Medium.ttf"; sourceTree = "<group>"; };
 		255D97FF28DA5AAE002CBB38 /* ObjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectTableViewCell.swift; sourceTree = "<group>"; };
 		255F206928F73BAD004B8DC2 /* Objects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
 		255F206D28F75C49004B8DC2 /* ObjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectsViewController.swift; sourceTree = "<group>"; };
@@ -84,7 +82,6 @@
 		257F7BD9281D9F4300BCDB11 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		257F7BDE281DAEF700BCDB11 /* AuthAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAccountViewController.swift; sourceTree = "<group>"; };
 		257F7BE0281DAF0500BCDB11 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		257F7BE3281DCCBE00BCDB11 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
 		2584E44628EAEEA7009F0330 /* InfoAboutObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAboutObjectView.swift; sourceTree = "<group>"; };
 		25B0A48C289D974400DCE5CA /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		25B9DEB228D8A88B00819045 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -143,6 +140,50 @@
 			path = Animation;
 			sourceTree = "<group>";
 		};
+		251A1426290B02800044FD32 /* TableViews */ = {
+			isa = PBXGroup;
+			children = (
+				251A1429290B02DD0044FD32 /* ObjectsTableView */,
+				251A1427290B02A50044FD32 /* SettingTableView */,
+			);
+			path = TableViews;
+			sourceTree = "<group>";
+		};
+		251A1427290B02A50044FD32 /* SettingTableView */ = {
+			isa = PBXGroup;
+			children = (
+				251A14242909BDE30044FD32 /* SettingTableView.swift */,
+				251A1428290B02B80044FD32 /* SettingTableViewCells */,
+			);
+			path = SettingTableView;
+			sourceTree = "<group>";
+		};
+		251A1428290B02B80044FD32 /* SettingTableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				25FB403328CA2736007FD823 /* AccountTableViewCell.swift */,
+				25FB403628CA467C007FD823 /* LogoutTableViewCell.swift */,
+			);
+			path = SettingTableViewCells;
+			sourceTree = "<group>";
+		};
+		251A1429290B02DD0044FD32 /* ObjectsTableView */ = {
+			isa = PBXGroup;
+			children = (
+				251A142A290B03130044FD32 /* ObjectTableViewCell */,
+				251A142B290B03460044FD32 /* ObjectsTableView.swift */,
+			);
+			path = ObjectsTableView;
+			sourceTree = "<group>";
+		};
+		251A142A290B03130044FD32 /* ObjectTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				255D97FF28DA5AAE002CBB38 /* ObjectTableViewCell.swift */,
+			);
+			path = ObjectTableViewCell;
+			sourceTree = "<group>";
+		};
 		25554D0A28C2929D00E8AFDA /* Api */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,16 +203,6 @@
 				255F206928F73BAD004B8DC2 /* Objects.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		255D97F728D9E486002CBB38 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				255D97FA28D9E4A4002CBB38 /* Mariupol-Medium.ttf */,
-				255D97F928D9E4A4002CBB38 /* Mariupol-Regular.ttf */,
-				255D97F828D9E4A4002CBB38 /* Mariupol-Bold.ttf */,
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 		255F206F28F75C68004B8DC2 /* ObjectsViewControllers */ = {
@@ -268,10 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				257DC77628EF5D3A0002E548 /* FinishingOptions */,
-				257F7BE3281DCCBE00BCDB11 /* HouseTableViewCell.swift */,
-				25FB403328CA2736007FD823 /* AccountTableViewCell.swift */,
-				25FB403628CA467C007FD823 /* LogoutTableViewCell.swift */,
-				255D97FF28DA5AAE002CBB38 /* ObjectTableViewCell.swift */,
 				250C721D28E4972300B38AF7 /* PilesView.swift */,
 				2584E44628EAEEA7009F0330 /* InfoAboutObjectView.swift */,
 			);
@@ -333,11 +360,9 @@
 		25FB404828CE499A007FD823 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				251A1426290B02800044FD32 /* TableViews */,
 				250C722328E5BA5E00B38AF7 /* Slider */,
-				255D97F728D9E486002CBB38 /* Fonts */,
 				25FB404928CE49B9007FD823 /* TextFields */,
-				25B9DEB228D8A88B00819045 /* StringExtension.swift */,
-				251A14242909BDE30044FD32 /* SettingTableView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -346,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				25FB404A28CE49E8007FD823 /* CustomTextField.swift */,
+				25B9DEB228D8A88B00819045 /* StringExtension.swift */,
 			);
 			path = TextFields;
 			sourceTree = "<group>";
@@ -455,10 +481,10 @@
 				257F7BDF281DAEF700BCDB11 /* AuthAccountViewController.swift in Sources */,
 				25D160D52816F0FE00B1AE47 /* SceneDelegate.swift in Sources */,
 				25FB403D28CB643E007FD823 /* ProfileViewController.swift in Sources */,
-				257F7BE4281DCCBE00BCDB11 /* HouseTableViewCell.swift in Sources */,
 				257F7BDA281D9F4300BCDB11 /* AuthorizationViewController.swift in Sources */,
 				25FB404728CCB6DA007FD823 /* SettingsViewController.swift in Sources */,
 				257DC77528EF516A0002E548 /* FinishingOptionsScrollView.swift in Sources */,
+				251A142C290B03460044FD32 /* ObjectsTableView.swift in Sources */,
 				257F7BE1281DAF0500BCDB11 /* AboutViewController.swift in Sources */,
 				25FB403B28CB59A5007FD823 /* UserSettings.swift in Sources */,
 				251D6E5F28D23D73008ED74D /* UserInfoModel.swift in Sources */,

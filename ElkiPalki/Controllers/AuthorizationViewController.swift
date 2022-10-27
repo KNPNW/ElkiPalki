@@ -66,6 +66,10 @@ class AuthorizationViewController: UIViewController {
         
         enterButton.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
         
+        setConstraints()
+    }
+    
+    private func setConstraints () {
         lineImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 15).isActive = true
         lineImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
         lineImageView.heightAnchor.constraint(equalToConstant: 10).isActive = true

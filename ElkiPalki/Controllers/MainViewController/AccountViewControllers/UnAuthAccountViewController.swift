@@ -67,6 +67,20 @@ class UnAuthAccountViewController: UIViewController {
         
         registrateButton.addTarget(self, action: #selector(registrateButtonTapped), for: .touchUpInside)
         
+        setConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    private func setConstraints () {
         mainLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         mainLogo.topAnchor.constraint(equalTo: view.topAnchor, constant: 175).isActive = true
         mainLogo.heightAnchor.constraint(equalToConstant: 200).isActive = true
@@ -85,16 +99,6 @@ class UnAuthAccountViewController: UIViewController {
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     func configure(){

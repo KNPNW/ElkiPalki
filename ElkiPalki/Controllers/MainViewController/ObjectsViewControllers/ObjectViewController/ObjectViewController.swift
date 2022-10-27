@@ -118,10 +118,9 @@ class ObjectViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getFullInfoAboutObject()
     
         view.backgroundColor = UIColor(named: "mainBackGroungColor")
-                
-        downloadInfoAboutObject()
         
         view.addSubview(mainScrollView)
         
@@ -138,6 +137,15 @@ class ObjectViewController: UIViewController {
         contentView.addSubview(exteriorDecorationView)
         contentView.addSubview(moreDetailButton)
         
+        imageScrollIndicator.addTarget(self, action: #selector(pageControlDidChanged(_:)), for: .valueChanged)
+        moreDetailButton.addTarget(self, action: #selector(openUrl), for: .touchUpInside)
+        
+        imageScrollView.delegate = self
+        
+        setConstraints()
+    }
+    
+    private func setConstraints () {
         mainScrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         mainScrollView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
         mainScrollView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor).isActive = true
@@ -156,7 +164,6 @@ class ObjectViewController: UIViewController {
         imageScrollIndicator.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
         imageScrollIndicator.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         imageScrollIndicator.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        imageScrollIndicator.addTarget(self, action: #selector(pageControlDidChanged(_:)), for: .valueChanged)
         
         pilesView.topAnchor.constraint(equalTo: imageScrollIndicator.bottomAnchor, constant: 10).isActive = true
         pilesView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
@@ -192,10 +199,6 @@ class ObjectViewController: UIViewController {
         moreDetailButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
         moreDetailButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         moreDetailButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        moreDetailButton.addTarget(self, action: #selector(openUrl), for: .touchUpInside)
-        
-        imageScrollView.delegate = self
-        
     }
     
     @objc func openUrl() {
@@ -203,7 +206,11 @@ class ObjectViewController: UIViewController {
         present(svc, animated: true, completion: nil)
     }
     
-    private func downloadInfoAboutObject() {
+    @objc func getСonsultation() {
+        
+    }
+    
+    private func getFullInfoAboutObject() {
         
         let getInfo = ApiRequest(endPoint: "api/getFullInfoAboutObject/?object_id=\(self.objectId)")
         

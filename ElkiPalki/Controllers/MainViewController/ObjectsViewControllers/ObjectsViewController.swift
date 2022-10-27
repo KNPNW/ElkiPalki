@@ -1,22 +1,9 @@
 import UIKit
 
-struct SectionObject {
-    let title: String
-    var options: [ObjectOptions]
-}
-
-struct ObjectOptions {
-    let object: MainInfo
-    let handler: (()->Void)
+class ObjectsViewController: UIViewController {
     
-}
-
-class ObjectsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    private lazy var tableView : UITableView = {
-        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), style: .grouped)
-        tableView.register(ObjectTableViewCell.self, forCellReuseIdentifier: ObjectTableViewCell.identifier)
-        tableView.backgroundColor = UIColor(named: "mainBackGroungColor")
+    private lazy var tableView : ObjectsTableView = {
+        let tableView = ObjectsTableView(frame: .zero, style: .grouped)
         return tableView
     }()
     
@@ -51,10 +38,7 @@ class ObjectsViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(updateTable), for: .valueChanged)
         
-        tableView.delegate = self
-        tableView.separatorStyle = .none
-        tableView.dataSource = self
-        
+        setConstraint()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,6 +49,12 @@ class ObjectsViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    private func setConstraint() {
+        tableView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        tableView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
     }
     
     @objc func updateTable() {
@@ -88,6 +78,7 @@ class ObjectsViewController: UIViewController, UITableViewDelegate, UITableViewD
 //                                self.present(objectViewController, animated: true, completion: nil)
                                 self.show(objectViewController, sender: self)
                             }))
+                            self.tableView.models = self.models
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
                             }
@@ -125,6 +116,7 @@ class ObjectsViewController: UIViewController, UITableViewDelegate, UITableViewD
 //                            self.present(objectViewController, animated: true, completion: nil)
                               self.show(objectViewController, sender: self)
                         }))
+                        self.tableView.models = self.models
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
                         }
@@ -136,76 +128,4 @@ class ObjectsViewController: UIViewController, UITableViewDelegate, UITableViewD
             })
         }
     }
-    
-    
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return models.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models[section].options.count
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 470
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = models[indexPath.section].options[indexPath.row]
-
-        guard let cell = tableView.dequeueReusableCell( withIdentifier: ObjectTableViewCell.identifier, for: indexPath) as? ObjectTableViewCell else { return UITableViewCell() }
-        cell.configure(with: model)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let model = models[indexPath.section].options[indexPath.row]
-        model.handler()
-    }
 }
-
-//extension ObjectsViewController: UIViewControllerTransitioningDelegate {
-//    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        return self
-//    }
-//    
-//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        return self
-//    }
-//}
-
-//extension ObjectsViewController: UIViewControllerAnimatedTransitioning {
-//    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-//        return 1.0
-//    }
-//
-//    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-//        guard let fromView = transitionContext.viewController(forKey: .from)?.view,
-//              let toView = transitionContext.viewController(forKey: .to )?.view else {
-//            return
-//        }
-//
-//        let isPresenting = (fromView == view)
-//
-//        let presentingView = isPresenting ? toView : fromView
-//
-//        if isPresenting {
-//            transitionContext.containerView.addSubview(presentingView)
-//        }
-//
-//        let animateDuration = transitionDuration(using: transitionContext)
-//        UIView.animate(withDuration: animateDuration) {
-//            presentingView.frame = CGRect(x: 0, y: UIScreen.main.bounds.size.height/2, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height/2)
-//        } completion: { isSuccess in
-//            if !isPresenting {
-//                presentingView.removeFromSuperview()
-//            }
-//
-//            transitionContext.completeTransition(isSuccess)
-//        }
-//
-//
-//    }
-//}

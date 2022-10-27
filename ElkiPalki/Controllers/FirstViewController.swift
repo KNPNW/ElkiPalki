@@ -44,7 +44,6 @@ class FirstViewController: UIViewController {
     
     let withoutRegButton : UIButton = {
         let button = UIButton()
-//        button.backgroundColor = UIColor(named: "mainColor")
         button.layer.cornerRadius = 10
         button.setTitle(NSLocalizedString("Continue without registration", comment: ""), for: .normal)
         button.titleLabel?.font = UIFont(name: "Gilroy-Light", size: 17)
@@ -55,7 +54,13 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = UIColor(named: "mainBackGroungColor")
+        
+        view.addSubview(mainLogo)
+        view.addSubview(enterButton)
+        view.addSubview(registrateButton)
+        view.addSubview(withoutRegButton)
         
         UserSettings.isFirstLaunch = false
         
@@ -71,6 +76,27 @@ class FirstViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    private func setConstraints () {
+        mainLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        mainLogo.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
+        mainLogo.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        
+        enterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        enterButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -200).isActive = true
+        enterButton.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        enterButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        registrateButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        registrateButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -135).isActive = true
+        registrateButton.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        registrateButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        withoutRegButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        withoutRegButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -75).isActive = true
+        withoutRegButton.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        withoutRegButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     @objc func enterButtonTapped() {
@@ -93,41 +119,4 @@ class FirstViewController: UIViewController {
     }
 
 
-}
-
-
-extension FirstViewController  {
-    
-    func setConstraints () {
-        view.addSubview(mainLogo)
-        NSLayoutConstraint.activate([
-            mainLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            mainLogo.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
-            mainLogo.heightAnchor.constraint(equalToConstant: 300)
-        ])
-        
-        view.addSubview(enterButton)
-        NSLayoutConstraint.activate([
-            enterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            enterButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -200),
-            enterButton.widthAnchor.constraint(equalToConstant: 300),
-            enterButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        
-        view.addSubview(registrateButton)
-        NSLayoutConstraint.activate([
-            registrateButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            registrateButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -135),
-            registrateButton.widthAnchor.constraint(equalToConstant: 300),
-            registrateButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        
-        view.addSubview(withoutRegButton)
-        NSLayoutConstraint.activate([
-            withoutRegButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            withoutRegButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -75),
-            withoutRegButton.widthAnchor.constraint(equalToConstant: 300),
-            withoutRegButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
-    }
 }

@@ -48,10 +48,14 @@ class AuthAccountViewController: UIViewController {
 
         view.addSubview(tableView)
         
+        setConstraints()
+
+    }
+    
+    private func setConstraints () {
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-
     }
     
     func configure(){

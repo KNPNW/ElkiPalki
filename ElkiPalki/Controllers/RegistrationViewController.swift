@@ -76,6 +76,11 @@ class RegistrationViewController: UIViewController {
         
         registrateButton.addTarget(self, action: #selector(registrateButtonTapped), for: .touchUpInside)
         
+        setConstraints()
+    }
+    
+    private func setConstraints () {
+        
         lineImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 15).isActive = true
         lineImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
         lineImageView.heightAnchor.constraint(equalToConstant: 10).isActive = true
@@ -93,6 +98,7 @@ class RegistrationViewController: UIViewController {
             subView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
             subView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         }
+        
     }
     
     
