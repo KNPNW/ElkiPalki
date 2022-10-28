@@ -85,6 +85,7 @@ class CustomTextField: UIView, UITextViewDelegate {
         setTypeKeybord(keyboardType: keyboardType)
         
         configure()
+        
     }
     
     override init(frame: CGRect) {
