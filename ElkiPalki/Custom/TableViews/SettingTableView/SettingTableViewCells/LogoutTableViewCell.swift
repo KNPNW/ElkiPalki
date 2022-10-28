@@ -65,7 +65,7 @@ class LogoutTableViewCell: UITableViewCell {
         contentView.backgroundColor = nil
     }
     
-    public func configure(with model: LogoutSettingOption) {
+    public func configure(with model: SettingTableView.LogoutSettingOption) {
         label.text = model.title
         contentView.backgroundColor = model.color
     }

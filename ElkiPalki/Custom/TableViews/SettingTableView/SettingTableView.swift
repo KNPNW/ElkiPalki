@@ -7,32 +7,31 @@
 
 import UIKit
 
-struct Section {
-    let title: String
-    let options: [SettingOptionsType]
-}
-
-enum SettingOptionsType {
-    case simpleCell(model: SimpleSettingOption)
-    case logoutCell(model: LogoutSettingOption)
-    
-}
-
-struct LogoutSettingOption {
-    let title: String
-    let color: UIColor?
-    let handler: (()->Void)
-}
-
-struct SimpleSettingOption {
-    let title: String
-    let icon: UIImage?
-    let iconBackGroundColor: UIColor?
-    let handler: (()->Void)
-}
-
-
 class SettingTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+    
+    struct Section {
+        let title: String
+        let options: [SettingOptionsType]
+    }
+
+    enum SettingOptionsType {
+        case simpleCell(model: SimpleSettingOption)
+        case logoutCell(model: LogoutSettingOption)
+        
+    }
+
+    struct LogoutSettingOption {
+        let title: String
+        let color: UIColor?
+        let handler: (()->Void)
+    }
+
+    struct SimpleSettingOption {
+        let title: String
+        let icon: UIImage?
+        let iconBackGroundColor: UIColor?
+        let handler: (()->Void)
+    }
     
     var models = [Section]() {
         didSet {

@@ -76,7 +76,7 @@ class AccountTableViewCell: UITableViewCell {
         iconContainer.backgroundColor = nil
     }
     
-    public func configure(with model: SimpleSettingOption) {
+    public func configure(with model: SettingTableView.SimpleSettingOption) {
         label.text = model.title
         iconImageView.image = model.icon
         iconContainer.backgroundColor = model.iconBackGroundColor

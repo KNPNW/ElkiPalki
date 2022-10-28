@@ -1,6 +1,7 @@
 import UIKit
 
 class ObjectTableViewCell: UITableViewCell {
+    
     static let identifier = "ObjectTableViewCell"
     
     private lazy var shadowView: UIView = {
@@ -115,7 +116,7 @@ class ObjectTableViewCell: UITableViewCell {
         objectImageView.image = nil
     }
     
-    public func configure(with model: ObjectOptions) {
+    public func configure(with model: ObjectsTableView.ObjectOptions) {
         nameLabel.text = model.object.name
         
         infoAboutIbject.paramers = Parametrs(size: model.object.size, square: String(model.object.square), numberOfRooms: String(model.object.numberOfRooms), numberOfFloors: model.object.numberOfFloors)

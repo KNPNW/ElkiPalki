@@ -1,19 +1,28 @@
+//
+//  ApplicationsTableView.swift
+//  ElkiPalki
+//
+//  Created by Кирилл Падалица on 27.10.2022.
+//
+
 import UIKit
 
-class ObjectsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+class ApplicationsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     
-    struct Section {
-        let title: String
-        var options: [ObjectOptions]
+    enum stateApplication {
+        case sent
+        case closed
+        case inProcessing
+    }
+    
+    struct ApplicationOptions {
+        let numberApplication: String
+        let objectApplication: String
+        let state: stateApplication
+        let handler: (()->Void)
     }
 
-    struct ObjectOptions {
-        let object: ObjectMainInfo
-        let handler: (()->Void)
-        
-    }
-    
-    var models = [Section]() {
+    var models = [ApplicationOptions]() {
         didSet {
             DispatchQueue.main.async {
                 self.reloadData()
@@ -25,7 +34,7 @@ class ObjectsTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
         super.init(frame: frame, style: style)
         
         self.backgroundColor = UIColor(named: "mainBackGroungColor")
-        self.register(ObjectTableViewCell.self, forCellReuseIdentifier: ObjectTableViewCell.identifier)
+        self.register(ApplicationTableViewCell.self, forCellReuseIdentifier: ApplicationTableViewCell.identifier)
         
         self.delegate = self
         self.dataSource = self
@@ -38,30 +47,25 @@ class ObjectsTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
         fatalError("init(coder:) has not been implemented")
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models[section].options.count
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 470
+            return 160
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = models[indexPath.section].options[indexPath.row]
+        let model = models[indexPath.row]
 
-        guard let cell = tableView.dequeueReusableCell( withIdentifier: ObjectTableViewCell.identifier, for: indexPath) as? ObjectTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell( withIdentifier: ApplicationTableViewCell.identifier, for: indexPath) as? ApplicationTableViewCell else { return UITableViewCell() }
         cell.configure(with: model)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let model = models[indexPath.section].options[indexPath.row]
+        let model = models[indexPath.row]
         model.handler()
     }
-
 }
