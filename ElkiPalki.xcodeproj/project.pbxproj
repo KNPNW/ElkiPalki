@@ -21,7 +21,6 @@
 		25554D1328C3B67100E8AFDA /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25554D1228C3B67100E8AFDA /* Errors.swift */; };
 		255F206A28F73BAD004B8DC2 /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255F206928F73BAD004B8DC2 /* Objects.swift */; };
 		255F206E28F75C49004B8DC2 /* ObjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255F206D28F75C49004B8DC2 /* ObjectsViewController.swift */; };
-		25659842290C8A07006FB28B /* CustomtextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25659829290C8A07006FB28B /* CustomtextField.swift */; };
 		25659843290C8A07006FB28B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565982A290C8A07006FB28B /* StringExtension.swift */; };
 		25659844290C8A07006FB28B /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565982C290C8A07006FB28B /* CustomSlider.swift */; };
 		25659845290C8A07006FB28B /* SliderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565982D290C8A07006FB28B /* SliderButton.swift */; };
@@ -42,6 +41,7 @@
 		257F7BE1281DAF0500BCDB11 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257F7BE0281DAF0500BCDB11 /* AboutViewController.swift */; };
 		2584E44728EAEEA7009F0330 /* InfoAboutObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2584E44628EAEEA7009F0330 /* InfoAboutObjectView.swift */; };
 		25B0A48D289D974400DCE5CA /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B0A48C289D974400DCE5CA /* RegistrationViewController.swift */; };
+		25B50190290C8F4C002DF29F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B5018F290C8F4C002DF29F /* CustomTextField.swift */; };
 		25CB287A29082CB20010456C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CB287929082CB20010456C /* MainViewController.swift */; };
 		25D160D32816F0FE00B1AE47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D160D22816F0FE00B1AE47 /* AppDelegate.swift */; };
 		25D160D52816F0FE00B1AE47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D160D42816F0FE00B1AE47 /* SceneDelegate.swift */; };
@@ -75,7 +75,6 @@
 		25554D1228C3B67100E8AFDA /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		255F206928F73BAD004B8DC2 /* Objects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
 		255F206D28F75C49004B8DC2 /* ObjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectsViewController.swift; sourceTree = "<group>"; };
-		25659829290C8A07006FB28B /* CustomtextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomtextField.swift; sourceTree = "<group>"; };
 		2565982A290C8A07006FB28B /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		2565982C290C8A07006FB28B /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		2565982D290C8A07006FB28B /* SliderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderButton.swift; sourceTree = "<group>"; };
@@ -96,6 +95,7 @@
 		257F7BE0281DAF0500BCDB11 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		2584E44628EAEEA7009F0330 /* InfoAboutObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAboutObjectView.swift; sourceTree = "<group>"; };
 		25B0A48C289D974400DCE5CA /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		25B5018F290C8F4C002DF29F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		25CB287929082CB20010456C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		25D160CF2816F0FE00B1AE47 /* ElkiPalki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElkiPalki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D160D22816F0FE00B1AE47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -243,8 +243,8 @@
 		25659828290C8A07006FB28B /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
-				25659829290C8A07006FB28B /* CustomtextField.swift */,
 				2565982A290C8A07006FB28B /* StringExtension.swift */,
+				25B5018F290C8F4C002DF29F /* CustomTextField.swift */,
 			);
 			path = TextFields;
 			sourceTree = "<group>";
@@ -513,7 +513,6 @@
 				250C721E28E4972300B38AF7 /* PilesView.swift in Sources */,
 				25554D0F28C2939F00E8AFDA /* ApiRequest.swift in Sources */,
 				25659843290C8A07006FB28B /* StringExtension.swift in Sources */,
-				25659842290C8A07006FB28B /* CustomtextField.swift in Sources */,
 				25554D1328C3B67100E8AFDA /* Errors.swift in Sources */,
 				2565984B290C8A07006FB28B /* AccountTableViewCell.swift in Sources */,
 				25B0A48D289D974400DCE5CA /* RegistrationViewController.swift in Sources */,
@@ -525,6 +524,7 @@
 				257DC77828EF5D650002E548 /* FinishingOptionsView.swift in Sources */,
 				250C721C28E32D3300B38AF7 /* ObjectViewController.swift in Sources */,
 				25659845290C8A07006FB28B /* SliderButton.swift in Sources */,
+				25B50190290C8F4C002DF29F /* CustomTextField.swift in Sources */,
 				25FB404328CCB69C007FD823 /* ActiveProjectsViewController.swift in Sources */,
 				25659847290C8A07006FB28B /* ObjectsTableView.swift in Sources */,
 				25659848290C8A07006FB28B /* ObjectTableViewCell.swift in Sources */,
