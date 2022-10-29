@@ -19,7 +19,7 @@ class ObjectsViewController: UIViewController {
         return view
     }()
     
-    var models = [SectionObject]()
+    var models = [ObjectsTableView.Section]()
 
     
     override func viewDidLoad() {
@@ -64,13 +64,13 @@ class ObjectsViewController: UIViewController {
             
             DispatchQueue.global(qos: .userInitiated).async {
                 let getObject = ApiRequest(endPoint: "api/getAllObjects/")
-                self.models.append(SectionObject(title: "", options: []))
+                self.models.append(ObjectsTableView.Section(title: "", options: []))
                 
                 getObject.getAllObjects(completion: { result in
                     switch result {
                     case .success(let allObjects):
                         for (_, object) in allObjects.objects.enumerated() {
-                            self.models[0].options.append(ObjectOptions(object: object, handler: {
+                            self.models[0].options.append(ObjectsTableView.ObjectOptions(object: object, handler: {
                                 let objectViewController = ObjectViewController(objectId: String(object.id))
 //                                objectViewController.modalPresentationStyle = .custom
 //                                objectViewController.transitioningDelegate = self
@@ -99,7 +99,7 @@ class ObjectsViewController: UIViewController {
         DispatchQueue.global(qos: .userInitiated).async {
             
             let getObject = ApiRequest(endPoint: "api/getAllObjects/")
-            self.models.append(SectionObject(title: "", options: []))
+            self.models.append(ObjectsTableView.Section(title: "", options: []))
             
             getObject.getAllObjects(completion: { result in
                 switch result {
@@ -108,7 +108,7 @@ class ObjectsViewController: UIViewController {
                         self.loadView.removeFromSuperview()
                     }
                     for (_, object) in allObjects.objects.enumerated() {
-                        self.models[0].options.append(ObjectOptions(object: object, handler: {
+                        self.models[0].options.append(ObjectsTableView.ObjectOptions(object: object, handler: {
                             let objectViewController = ObjectViewController(objectId: String(object.id))
 //                            objectViewController.modalPresentationStyle = .custom
 //                            objectViewController.transitioningDelegate = self

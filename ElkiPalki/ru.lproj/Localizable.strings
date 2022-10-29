@@ -18,7 +18,7 @@
 //MARK: - tabBarItem
 "Personal account" = "Личный кабинет";
 "Projects" = "Проекты";
-"About us" = "О нас";
+"About us" = "О Нас";
 
 //MARK: - InfoAboutObjectView
 "Size" = "Размер";
@@ -32,3 +32,9 @@
 //MARK: - CustomTextField
 "Close" = "Закрыть";
 "Done" = "Готово";
+
+//MARK: - ApplicationTableViewCell
+"Application" = "Заявка";
+"Sent" = "Отправлена";
+"Closed" = "Закрыта";
+"In processing" = "В обработке";

@@ -33,3 +33,8 @@
 "Close" = "Close";
 "Done" = "Done";
 
+//MARK: - ApplicationTableViewCell
+"Application" = "Application";
+"Sent" = "Sent";
+"Closed" = "Closed";
+"In processing" = "In processing";

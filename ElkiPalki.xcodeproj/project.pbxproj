@@ -42,6 +42,7 @@
 		2584E44728EAEEA7009F0330 /* InfoAboutObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2584E44628EAEEA7009F0330 /* InfoAboutObjectView.swift */; };
 		25B0A48D289D974400DCE5CA /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B0A48C289D974400DCE5CA /* RegistrationViewController.swift */; };
 		25B50190290C8F4C002DF29F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B5018F290C8F4C002DF29F /* CustomTextField.swift */; };
+		25B50192290D48FF002DF29F /* Gilroy-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25B50191290D48FF002DF29F /* Gilroy-Bold.ttf */; };
 		25CB287A29082CB20010456C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CB287929082CB20010456C /* MainViewController.swift */; };
 		25D160D32816F0FE00B1AE47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D160D22816F0FE00B1AE47 /* AppDelegate.swift */; };
 		25D160D52816F0FE00B1AE47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D160D42816F0FE00B1AE47 /* SceneDelegate.swift */; };
@@ -96,6 +97,7 @@
 		2584E44628EAEEA7009F0330 /* InfoAboutObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAboutObjectView.swift; sourceTree = "<group>"; };
 		25B0A48C289D974400DCE5CA /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		25B5018F290C8F4C002DF29F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		25B50191290D48FF002DF29F /* Gilroy-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Bold.ttf"; sourceTree = "<group>"; };
 		25CB287929082CB20010456C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		25D160CF2816F0FE00B1AE47 /* ElkiPalki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElkiPalki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D160D22816F0FE00B1AE47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -289,8 +291,8 @@
 		25659834290C8A07006FB28B /* ApplicationsTableView */ = {
 			isa = PBXGroup;
 			children = (
-				25659835290C8A07006FB28B /* ApplicationTableViewCell */,
 				25659837290C8A07006FB28B /* ApplicationsTableView.swift */,
+				25659835290C8A07006FB28B /* ApplicationTableViewCell */,
 			);
 			path = ApplicationsTableView;
 			sourceTree = "<group>";
@@ -332,8 +334,8 @@
 		2565983E290C8A07006FB28B /* ActiveProjectsCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				2565983F290C8A07006FB28B /* ActiveProjectCollectionViewCell */,
 				25659841290C8A07006FB28B /* ActiveProjectCollectionView.swift */,
+				2565983F290C8A07006FB28B /* ActiveProjectCollectionViewCell */,
 			);
 			path = ActiveProjectsCollectionView;
 			sourceTree = "<group>";
@@ -415,6 +417,7 @@
 				25D160D22816F0FE00B1AE47 /* AppDelegate.swift */,
 				25D160D42816F0FE00B1AE47 /* SceneDelegate.swift */,
 				25D160DB2816F10000B1AE47 /* Assets.xcassets */,
+				25B50191290D48FF002DF29F /* Gilroy-Bold.ttf */,
 				251A14222909A7FB0044FD32 /* Gilroy-Medium.ttf */,
 				251A14202909A6C10044FD32 /* Gilroy-Regular.ttf */,
 				251A141E2909A6220044FD32 /* Gilroy-Light.ttf */,
@@ -498,6 +501,7 @@
 				25E7B31828F8C42900A4312B /* Localizable.strings in Resources */,
 				25D160DC2816F10000B1AE47 /* Assets.xcassets in Resources */,
 				251A141F2909A6220044FD32 /* Gilroy-Light.ttf in Resources */,
+				25B50192290D48FF002DF29F /* Gilroy-Bold.ttf in Resources */,
 				251A14232909A7FB0044FD32 /* Gilroy-Medium.ttf in Resources */,
 				25227B6928E7975D0047B8C5 /* ViewController.xib in Resources */,
 			);

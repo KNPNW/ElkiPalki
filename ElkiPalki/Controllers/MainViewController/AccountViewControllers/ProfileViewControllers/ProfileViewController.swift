@@ -79,11 +79,9 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(named: "mainBackGroundColor")
-
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.title = "Профиль"
+        self.navigationItem.title = NSLocalizedString("Profile", comment: "")
         
+        view.backgroundColor = UIColor(named: "mainBackGroundColor")
         
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
@@ -100,7 +98,17 @@ class ProfileViewController: UIViewController {
         
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         
-        setConstraint()
+        setConstraints ()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     private func setConstraints () {
@@ -112,6 +120,13 @@ class ProfileViewController: UIViewController {
         stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
         
+        for view in stackView.arrangedSubviews {
+            view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+            view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+            view.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+            view.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        }
+        
         saveButton.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 20).isActive = true
         saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
@@ -120,7 +135,7 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func saveButtonTapped() {
-        print(firstName.textField.text ?? "lox")
+        
         let userInfo = UserInfoModel(refreshToken: UserSettings.userRefreshToken, userFirstName: firstName.textField.text ?? "", userLastName: lastName.textField.text ?? "", userDateBirthday: dateOfBirth.textField.text ?? "", userPhone: phone.textField.text ?? "")
         
         let postRequest = ApiRequest(endPoint: "user/updateUserInfo/")
@@ -141,16 +156,5 @@ class ProfileViewController: UIViewController {
                 print("error")
             }
         })
-    }
-}
-
-extension ProfileViewController {
-    func setConstraint() {
-        for view in stackView.arrangedSubviews {
-            view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
-            view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
-            view.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-            view.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        }
     }
 }

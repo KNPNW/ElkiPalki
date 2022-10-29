@@ -46,7 +46,7 @@ class UnAuthAccountViewController: UIViewController {
         return tableView
     }()
     
-    var models = [Section]()
+    var models = [SettingTableView.Section]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,14 +102,14 @@ class UnAuthAccountViewController: UIViewController {
     }
     
     func configure(){
-        models.append(Section(title: "General", options: [
-            .simpleCell(model: SimpleSettingOption(title: NSLocalizedString("About app", comment: ""), icon: UIImage(systemName: "info"), iconBackGroundColor: .systemGray2 ){
+        models.append(SettingTableView.Section(title: "General", options: [
+            .simpleCell(model: SettingTableView.SimpleSettingOption(title: NSLocalizedString("About app", comment: ""), icon: UIImage(systemName: "info"), iconBackGroundColor: .systemGray2 ){
                 return
             }),
-            .simpleCell(model: SimpleSettingOption(title: NSLocalizedString("Information and help", comment: ""), icon: UIImage(systemName: "bubble.left.and.exclamationmark.bubble.right"), iconBackGroundColor: .systemGray2 ){
+            .simpleCell(model: SettingTableView.SimpleSettingOption(title: NSLocalizedString("Information and help", comment: ""), icon: UIImage(systemName: "bubble.left.and.exclamationmark.bubble.right"), iconBackGroundColor: .systemGray2 ){
                 return
             }),
-            .simpleCell(model: SimpleSettingOption(title: NSLocalizedString("User agreement", comment: ""), icon: UIImage(systemName: "lock"), iconBackGroundColor: .systemGray2 ){
+            .simpleCell(model: SettingTableView.SimpleSettingOption(title: NSLocalizedString("User agreement", comment: ""), icon: UIImage(systemName: "lock"), iconBackGroundColor: .systemGray2 ){
                 return
             })
             ]))

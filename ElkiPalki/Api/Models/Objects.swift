@@ -1,17 +1,17 @@
 import Foundation
 
 struct Objects: Codable {
-    let objects: [MainInfo]
+    let objects: [ObjectMainInfo]
 }
 
 struct Object: Codable {
-    let mainInfo: MainInfo?
+    let mainInfo: ObjectMainInfo?
     let linksOnImages: [LinksOnImages]?
     let prices: Price?
 }
 
-// MARK: - MainInfo
-struct MainInfo: Codable {
+// MARK: - ObjectMainInfo
+struct ObjectMainInfo: Codable {
     let id: Int
     let name, size, numberOfRooms, numberOfFloors: String
     let square, linkOnMainImage: String

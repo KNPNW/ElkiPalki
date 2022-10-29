@@ -31,7 +31,7 @@ class AuthAccountViewController: UIViewController {
     }()
     
     
-    var models = [Section]()
+    var models = [SettingTableView.Section]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,40 +59,40 @@ class AuthAccountViewController: UIViewController {
     }
     
     func configure(){
-        models.append(Section(title: "User", options: [
-            .simpleCell(model: SimpleSettingOption(title: NSLocalizedString("Profile", comment: ""), icon: UIImage(systemName: "person"), iconBackGroundColor: UIColor(named:
+        models.append(SettingTableView.Section(title: "User", options: [
+            .simpleCell(model: SettingTableView.SimpleSettingOption(title: NSLocalizedString("Profile", comment: ""), icon: UIImage(systemName: "person"), iconBackGroundColor: UIColor(named:
                 "ElGreen")){
                 self.navigationController?.pushViewController(ProfileViewController(), animated: true)
                 return
             }),
-            .simpleCell(model: SimpleSettingOption(title: NSLocalizedString("Active projects", comment: ""), icon: UIImage(systemName: "house"), iconBackGroundColor: UIColor(named: "ElGreen")){
+            .simpleCell(model: SettingTableView.SimpleSettingOption(title: NSLocalizedString("Active projects", comment: ""), icon: UIImage(systemName: "house"), iconBackGroundColor: UIColor(named: "ElGreen")){
                 self.navigationController?.pushViewController(ActiveProjectsViewController(), animated: true)
                 return
             }),
-            .simpleCell(model: SimpleSettingOption(title: NSLocalizedString("My applications", comment: ""), icon: UIImage(systemName: "doc.text"), iconBackGroundColor: UIColor(named: "ElGreen")){
+            .simpleCell(model: SettingTableView.SimpleSettingOption(title: NSLocalizedString("My applications", comment: ""), icon: UIImage(systemName: "doc.text"), iconBackGroundColor: UIColor(named: "ElGreen")){
                 self.navigationController?.pushViewController(ApplicationsViewController(), animated: true)
                 return
             }),
-            .simpleCell(model: SimpleSettingOption(title: NSLocalizedString("Settings", comment: ""), icon: UIImage(systemName: "gearshape"), iconBackGroundColor: UIColor(named: "ElGreen")){
+            .simpleCell(model: SettingTableView.SimpleSettingOption(title: NSLocalizedString("Settings", comment: ""), icon: UIImage(systemName: "gearshape"), iconBackGroundColor: UIColor(named: "ElGreen")){
                 self.navigationController?.pushViewController(SettingsViewController(), animated: true)
                 return
             })
             ]))
         
-        models.append(Section(title: "General", options: [
-            .simpleCell(model: SimpleSettingOption(title: NSLocalizedString("About app", comment: ""), icon: UIImage(systemName: "info"), iconBackGroundColor: .systemGray4){
+        models.append(SettingTableView.Section(title: "General", options: [
+            .simpleCell(model: SettingTableView.SimpleSettingOption(title: NSLocalizedString("About app", comment: ""), icon: UIImage(systemName: "info"), iconBackGroundColor: .systemGray4){
                 return
             }),
-            .simpleCell(model: SimpleSettingOption(title: NSLocalizedString("Information and help", comment: ""), icon: UIImage(systemName: "bubble.left.and.exclamationmark.bubble.right"), iconBackGroundColor: .systemGray4 ){
+            .simpleCell(model: SettingTableView.SimpleSettingOption(title: NSLocalizedString("Information and help", comment: ""), icon: UIImage(systemName: "bubble.left.and.exclamationmark.bubble.right"), iconBackGroundColor: .systemGray4 ){
                 return
             }),
-            .simpleCell(model: SimpleSettingOption(title: NSLocalizedString("User agreement", comment: ""), icon: UIImage(systemName: "lock"), iconBackGroundColor: .systemGray4 ){
+            .simpleCell(model: SettingTableView.SimpleSettingOption(title: NSLocalizedString("User agreement", comment: ""), icon: UIImage(systemName: "lock"), iconBackGroundColor: .systemGray4 ){
                 return
             })
             ]))
         
-        models.append(Section(title: "Logout", options: [
-            .logoutCell(model: LogoutSettingOption(title: NSLocalizedString("Logout", comment: ""), color: UIColor(named: "errorColor"), handler: {
+        models.append(SettingTableView.Section(title: "Logout", options: [
+            .logoutCell(model: SettingTableView.LogoutSettingOption(title: NSLocalizedString("Logout", comment: ""), color: UIColor(named: "errorColor"), handler: {
                 UserDefaults.standard.removeObject(forKey: "userRefreshToken")
                 UserDefaults.standard.removeObject(forKey: "userEmail")
                 
