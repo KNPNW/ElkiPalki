@@ -308,8 +308,8 @@
 		25659838290C8A07006FB28B /* SettingTableView */ = {
 			isa = PBXGroup;
 			children = (
-				25659839290C8A07006FB28B /* SettingTableViewCells */,
 				2565983C290C8A07006FB28B /* SettingTableView.swift */,
+				25659839290C8A07006FB28B /* SettingTableViewCells */,
 			);
 			path = SettingTableView;
 			sourceTree = "<group>";
