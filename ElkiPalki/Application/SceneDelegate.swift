@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if isFirst {
             window?.rootViewController = FirstViewController()
         } else {
-            window?.rootViewController = MainViewController(auth: UserSettings.isAuthorized ?? false)
+            window?.rootViewController = TabBarViewController(auth: UserSettings.isAuthorized ?? false)
         }
         window?.makeKeyAndVisible()
         
@@ -42,7 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if isFirst {
             window.rootViewController = FirstViewController()
         } else {
-            window.rootViewController = MainViewController(auth: UserSettings.isAuthorized ?? false)
+            window.rootViewController = TabBarViewController(auth: UserSettings.isAuthorized ?? false)
         }
         
         UIView.transition(with: window,

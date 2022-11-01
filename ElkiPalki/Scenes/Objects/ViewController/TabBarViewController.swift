@@ -1,7 +1,7 @@
 import UIKit
 import Combine
 
-class MainViewController: UITabBarController {
+class TabBarViewController: UITabBarController {
     
     lazy var AuthAccountVC: UINavigationController = {
         let viewController = UINavigationController(rootViewController: AuthAccountViewController())
